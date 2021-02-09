@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private PlayerJoystickController joystickController;
     [SerializeField] private float speed;
-    
+
+    [NonSerialized] public bool isRunning;
+
     void Update()
     {
         MovePlayer();
@@ -13,7 +17,11 @@ public class PlayerMovementController : MonoBehaviour
     private void MovePlayer()
     {
         var inputDirection = joystickController.inputDirection;
-        if (!inputDirection.Equals(Vector2.zero))
+        if (inputDirection.Equals(Vector2.zero))
+        {
+            isRunning = false;
+        }
+        else
         {
             var player = transform;
             var newPosition = player.position;
@@ -23,6 +31,12 @@ public class PlayerMovementController : MonoBehaviour
             
             player.LookAt(newPosition);
             player.position = newPosition;
+            isRunning = true;
         }
     }
+
+    public bool IsPlayerRunning()
+    {
+        return isRunning;
+    } 
 }
