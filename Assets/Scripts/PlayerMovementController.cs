@@ -15,13 +15,14 @@ public class PlayerMovementController : MonoBehaviour
         var inputDirection = joystickController.inputDirection;
         if (!inputDirection.Equals(Vector2.zero))
         {
-            var playerTransform = transform;
-            var newPosition = playerTransform.position;
+            var player = transform;
+            var newPosition = player.position;
             
-            newPosition.x = newPosition.x + inputDirection.x * speed * Time.deltaTime;
-            newPosition.z = newPosition.z + inputDirection.y * speed * Time.deltaTime;
-
-            playerTransform.position = newPosition;
+            newPosition.x += inputDirection.x * speed * Time.deltaTime;
+            newPosition.z += inputDirection.y * speed * Time.deltaTime;
+            
+            player.LookAt(newPosition);
+            player.position = newPosition;
         }
     }
 }

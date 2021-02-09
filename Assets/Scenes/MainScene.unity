@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7696c606ebb1b244be834ca92fbb181, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54755783
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7696c606ebb1b244be834ca92fbb181, type: 3}
       propertyPath: m_LocalPosition.y
@@ -714,3 +714,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1840965932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840965929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6802b9d3a7c16a54fb2734e5219d2385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystickController: {fileID: 560210037}
+  speed: 4
