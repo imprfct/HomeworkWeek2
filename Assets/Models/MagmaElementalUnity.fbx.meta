@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 5b4f683135a567640ac836e07189673d
+timeCreated: 1437321870
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone
+    100002: chest
+    100004: Elemental
+    100006: Fire Elemental
+    100008: forearm.L
+    100010: forearm.L.001
+    100012: forearm.L.002
+    100014: forearm.L.003
+    100016: forearm.L.004
+    100018: forearm.L.005
+    100020: forearm.L.006
+    100022: forearm.L.007
+    100024: forearm.L.008
+    100026: forearm.R
+    100028: forearm.R.001
+    100030: forearm.R.002
+    100032: forearm.R.003
+    100034: forearm.R.004
+    100036: forearm.R.005
+    100038: forearm.R.006
+    100040: forearm.R.007
+    100042: forearm.R.008
+    100044: hips
+    100046: //RootNode
+    100048: shoulder.L
+    100050: shoulder.R
+    100052: spine
+    100054: upper_arm.L
+    100056: upper_arm.R
+    400000: Bone
+    400002: chest
+    400004: Elemental
+    400006: Fire Elemental
+    400008: forearm.L
+    400010: forearm.L.001
+    400012: forearm.L.002
+    400014: forearm.L.003
+    400016: forearm.L.004
+    400018: forearm.L.005
+    400020: forearm.L.006
+    400022: forearm.L.007
+    400024: forearm.L.008
+    400026: forearm.R
+    400028: forearm.R.001
+    400030: forearm.R.002
+    400032: forearm.R.003
+    400034: forearm.R.004
+    400036: forearm.R.005
+    400038: forearm.R.006
+    400040: forearm.R.007
+    400042: forearm.R.008
+    400044: hips
+    400046: //RootNode
+    400048: shoulder.L
+    400050: shoulder.R
+    400052: spine
+    400054: upper_arm.L
+    400056: upper_arm.R
+    4300000: Elemental
+    7400000: Fire Elemental|Attack1
+    7400002: Fire Elemental|Block
+    7400004: Fire Elemental|deatch
+    7400006: Fire Elemental|deatch2
+    7400008: Fire Elemental|HandMagic
+    7400010: Fire Elemental|Idle1
+    7400012: Fire Elemental|Idle2
+    7400014: Fire Elemental|Idle3
+    7400016: Fire Elemental|MagicHand2
+    7400018: Fire Elemental|Punch1
+    7400020: Fire Elemental|Run
+    7400022: Fire Elemental|Run2
+    7400024: Elemental|Idle3
+    9500000: //RootNode
+    13700000: Elemental
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
