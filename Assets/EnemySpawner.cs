@@ -1,12 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private EnemiesManager enemiesManager;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private TerrainData terrain;
     
-    private const float newEnemyCooldown = 5;
+    private const float NewEnemyCooldown = 5;
     private float _elapsed;
     
     private float _terrainSizeX, _terrainSizeZ;
@@ -22,15 +24,15 @@ public class EnemySpawner : MonoBehaviour
     {
         _elapsed += Time.deltaTime;
         
-        if(cooldownExpired())
+        if(IsCooldownExpired())
             SpawnEnemy();
         
-        _elapsed %= newEnemyCooldown;
+        _elapsed %= NewEnemyCooldown;
     }
 
-    private bool cooldownExpired()
+    private bool IsCooldownExpired()
     {
-        if (_elapsed < newEnemyCooldown)
+        if (_elapsed < NewEnemyCooldown)
             return false;
 
         return true;
@@ -38,7 +40,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, getRandomPosition(), Quaternion.identity);
+        var enemy = Instantiate(enemyPrefab, getRandomPosition(), Quaternion.identity);
+        enemiesManager.enemies.Add(enemy);
     }
 
     private Vector3 getRandomPosition()
