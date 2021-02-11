@@ -40,16 +40,20 @@ public class PlayerShootingController : MonoBehaviour
         /*
          * Эта процедура вызывается из ивента анимации атаки в момент, когда анимация каста окончена
          */
-        
-        var spawnerPosition = spawner.transform.position;
-        var enemyPosition = _closestEnemy.transform.position;
-        var directionToTarget = (enemyPosition - spawnerPosition).normalized;
-        
-        transform.LookAt(_closestEnemy.transform);
-        var shard = Instantiate(shardPrefab,
-            spawnerPosition, Quaternion.identity);
-        shard.transform.LookAt(_closestEnemy.transform);
-        shard.GetComponent<Rigidbody>().velocity = directionToTarget * shardSpeed * Time.time;
+        if (_closestEnemy)
+        {
+            var spawnerPosition = spawner.transform.position;
+            var enemyPosition = _closestEnemy.transform.position;
+            
+            var directionToTarget = (enemyPosition - spawnerPosition).normalized;
+            directionToTarget.y = 1; // Чтобы всегда летело прямо, без искажений по y
+            
+            transform.LookAt(_closestEnemy.transform);
+            var shard = Instantiate(shardPrefab,
+                spawnerPosition, Quaternion.identity);
+            shard.transform.LookAt(_closestEnemy.transform);
+            shard.GetComponent<Rigidbody>().velocity = directionToTarget * shardSpeed * Time.time;
+        }
     }
 
     void FindClosestEnemy()
@@ -58,24 +62,34 @@ public class PlayerShootingController : MonoBehaviour
         Vector3 position = transform.position;
 
         GameObject closest = null;
+
         foreach (var enemy in _enemies)
         {
-            var distanceToEnemy = Vector3.Distance(transform.position,
-                enemy.transform.position);
-            
-            if(distanceToEnemy > attackRadius)
-                continue;
-            
-            Vector3 diff = enemy.transform.position - position;
-            float currentDistance = diff.sqrMagnitude;
-            if (currentDistance < distance)
+            try
             {
-                closest = enemy;
-                distance = currentDistance;
-            }
-        }
+                var distanceToEnemy = Vector3.Distance(transform.position,
+                    enemy.transform.position);
 
+                if (distanceToEnemy > attackRadius)
+                    continue;
+
+                Vector3 diff = enemy.transform.position - position;
+                float currentDistance = diff.sqrMagnitude;
+                if (currentDistance < distance)
+                {
+                    closest = enemy;
+                    distance = currentDistance;
+                }
+            }
+            /*
+             * Появляется, когда стреляем по врагу, который остался в _enemies, но уже удален со сцены
+             * Эта проблема связана с тем, что враг является префабом и я не могу дать ему ссылку на массив _enemies
+             *  Решение лучше чем это я просто не смог придумать...
+             */
+            catch (MissingReferenceException){ }
+        }
         _closestEnemy = closest;
+
     }
 
     public bool PlayerMayAttackEnemy()

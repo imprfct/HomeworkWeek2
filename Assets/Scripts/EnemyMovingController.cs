@@ -9,6 +9,7 @@ public class EnemyMovingController : MonoBehaviour
     
     private Vector3 _target;
     public bool isMoving;
+    public bool isAlive = true;
     
     private float _terrainSizeX, _terrainSizeZ;
     private const float OffsetFromTerrainEdges = 17f; 
@@ -21,7 +22,7 @@ public class EnemyMovingController : MonoBehaviour
 
     private void Update()
     {
-        if (!isMoving || NeedsNewTarget())
+        if ((!isMoving || NeedsNewTarget()) && isAlive)
         {
             SetNewTarget();
         }
