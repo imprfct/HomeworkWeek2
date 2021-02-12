@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private float healthBarOffsetY = -10f; 
+    [SerializeField] private float healthBarOffsetY = -20f; 
     
     private Camera _camera;
     private RectTransform _targetCanvas;

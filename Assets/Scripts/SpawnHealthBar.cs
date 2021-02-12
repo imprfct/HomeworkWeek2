@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlayerHealthBarController : MonoBehaviour
+public class SpawnHealthBar : MonoBehaviour
 {
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private RectTransform targetCanvas;
-
+    
     private HealthBar _healthBar;
     
     private void Start()
@@ -14,5 +14,7 @@ public class PlayerHealthBarController : MonoBehaviour
         
         _healthBar = healthBarObject.GetComponent<HealthBar>();
         _healthBar.SetHealthBarData(playerTransform, targetCanvas);
+
+        gameObject.GetComponent<HealthBarController>().HealthBar = _healthBar;
     }
 }

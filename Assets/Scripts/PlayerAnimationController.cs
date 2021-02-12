@@ -5,7 +5,6 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private PlayerMovementController movementController;
     [SerializeField] private PlayerShootingController shootingController;
-    [SerializeField] private EnemiesManager enemiesManager;
     
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int Attack = Animator.StringToHash("isAttackingWithFirstAnimation");

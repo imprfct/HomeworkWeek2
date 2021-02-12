@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1920325295309796488}
   - component: {fileID: 1920325295309796490}
   - component: {fileID: 1920325295309796491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostSmoke02
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 1920325295563094608}
   - component: {fileID: 1920325295563094610}
   - component: {fileID: 1920325295563094611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostSmokeHoriz01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -9777,7 +9777,7 @@ GameObject:
   - component: {fileID: 1920325295628051111}
   - component: {fileID: 1920325295628051113}
   - component: {fileID: 1920325295628051110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_IceGlowCircles01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -14620,7 +14620,7 @@ GameObject:
   - component: {fileID: 1920325295715920687}
   - component: {fileID: 1920325295715920849}
   - component: {fileID: 1920325295715920686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_SnowFlakes05
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -19544,7 +19544,7 @@ GameObject:
   - component: {fileID: 1920325295756999873}
   - component: {fileID: 1920325295756999875}
   - component: {fileID: 1920325295756999872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_IceGlowBig02
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -24414,7 +24414,7 @@ GameObject:
   - component: {fileID: 1920325295893947074}
   - component: {fileID: 1920325295893947076}
   - component: {fileID: 1920325295893947077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostDrops_01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -29354,7 +29354,7 @@ GameObject:
   - component: {fileID: 1920325296003977347}
   - component: {fileID: 1920325296003977349}
   - component: {fileID: 1920325296003977346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_SnowFlakes03
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -34278,7 +34278,7 @@ GameObject:
   - component: {fileID: 1920325296041128573}
   - component: {fileID: 1920325296041128575}
   - component: {fileID: 1920325296041128572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_FrostFlakesA1_02
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -39121,7 +39121,7 @@ GameObject:
   - component: {fileID: 1920325296100924281}
   - component: {fileID: 1920325296100924283}
   - component: {fileID: 1920325296100924280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_IceGlowCircles02
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -43964,7 +43964,7 @@ GameObject:
   - component: {fileID: 1920325296210919554}
   - component: {fileID: 1920325296210919556}
   - component: {fileID: 1920325296210919557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostDropGlowSub01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -48908,7 +48908,7 @@ GameObject:
   - component: {fileID: 1920325296383125404}
   - component: {fileID: 1920325296383125406}
   - component: {fileID: 1920325296383125407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostFlakeSub01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -53791,7 +53791,7 @@ GameObject:
   - component: {fileID: 1920325296514046094}
   - component: {fileID: 1920325296514046128}
   - component: {fileID: 1920325296514046129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_SnowFlakes02
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -58715,7 +58715,7 @@ GameObject:
   - component: {fileID: 1920325296969104493}
   - component: {fileID: 1920325296969104490}
   - component: {fileID: 1920325296969104491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_SnowFlakes01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -63643,7 +63643,7 @@ GameObject:
   - component: {fileID: 1920325297032846482}
   - component: {fileID: 1920325297032846483}
   - component: {fileID: 1920325297032846480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_FrostSmokeA1_01
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -68495,7 +68495,7 @@ GameObject:
   - component: {fileID: 1920325297036038168}
   - component: {fileID: 1920325297036038169}
   - component: {fileID: 1920325297036038166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_GlowSmall
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -73473,7 +73473,7 @@ GameObject:
   - component: {fileID: 1920325297227213693}
   - component: {fileID: 1920325297227213695}
   - component: {fileID: 1920325297227213692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ef_SnowFlakes04
   m_TagString: Shard
   m_Icon: {fileID: 0}
@@ -78400,7 +78400,7 @@ GameObject:
   - component: {fileID: 3758174655974172822}
   - component: {fileID: 8332622515011137921}
   - component: {fileID: 2022629868543680794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IceShard
   m_TagString: Shard
   m_Icon: {fileID: 0}

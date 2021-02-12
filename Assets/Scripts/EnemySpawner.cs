@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         var enemy = Instantiate(enemyPrefab, getRandomPosition(), Quaternion.identity);
-        enemy.GetComponent<EnemyHealthBarController>().healthBar = CreateHealthBar(enemy);
+        enemy.GetComponent<HealthBarController>().HealthBar = CreateHealthBar(enemy);
         enemiesManager.enemies.Add(enemy);
     }
 
