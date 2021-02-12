@@ -73,10 +73,11 @@ GameObject:
   - component: {fileID: 421148}
   - component: {fileID: 5145800279972073281}
   - component: {fileID: 9558302}
-  - component: {fileID: -3239643052649976255}
-  - component: {fileID: 8310605202814882490}
   - component: {fileID: -8217979379499544097}
   - component: {fileID: 7180328333528435877}
+  - component: {fileID: -3239643052649976255}
+  - component: {fileID: 8310605202814882490}
+  - component: {fileID: 2130225321874822034}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -141,36 +142,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3239643052649976255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb2baeec45f66e4590b8ea59ac58194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
-  agent: {fileID: 5145800279972073281}
-  isMoving: 1
-  isAlive: 1
---- !u!114 &8310605202814882490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4048b1b504e8d974a981ba731f1e218e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 9558302}
-  enemy: {fileID: -3239643052649976255}
 --- !u!136 &-8217979379499544097
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -201,6 +172,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3239643052649976255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb2baeec45f66e4590b8ea59ac58194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
+  agent: {fileID: 5145800279972073281}
+  isMoving: 1
+  isAlive: 1
+--- !u!114 &8310605202814882490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4048b1b504e8d974a981ba731f1e218e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9558302}
+  enemy: {fileID: -3239643052649976255}
+--- !u!114 &2130225321874822034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850c4c143bb5a446a803b41615cbc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
+  enemyTransform: {fileID: 421148}
+  targetCanvas: {fileID: 0}
 --- !u!1 &118702
 GameObject:
   m_ObjectHideFlags: 0

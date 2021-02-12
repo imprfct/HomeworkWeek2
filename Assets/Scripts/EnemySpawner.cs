@@ -8,6 +8,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private TerrainData terrain;
     
+    [SerializeField] private GameObject healthBarPrefab;
+    [SerializeField] private RectTransform targetCanvas;
+    
     private const float NewEnemyCooldown = 5;
     private float _elapsed;
     
@@ -41,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         var enemy = Instantiate(enemyPrefab, getRandomPosition(), Quaternion.identity);
+        enemy.GetComponent<EnemyHealthBarController>().healthBar = CreateHealthBar(enemy);
         enemiesManager.enemies.Add(enemy);
     }
 
@@ -51,5 +55,15 @@ public class EnemySpawner : MonoBehaviour
         var z = Random.Range(0, _terrainSizeZ);
 
         return new Vector3(x, y, z);
+    }
+
+    private HealthBar CreateHealthBar(GameObject enemy)
+    {
+        var healthBarObject = Instantiate(healthBarPrefab);
+        
+        var healthBar = healthBarObject.GetComponent<HealthBar>();
+        healthBar.SetHealthBarData(enemy.transform, targetCanvas);
+
+        return healthBar;
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - DeadEnemy
   - Shard
   - Terrain
+  - BordersOfMap
+  - Walls
   layers:
   - Default
   - TransparentFX

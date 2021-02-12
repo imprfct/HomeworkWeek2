@@ -23,6 +23,9 @@ public class PlayerAnimationController : MonoBehaviour
             animator.SetTrigger(Attack);
         }
         else
+        {
+            animator.ResetTrigger(Attack);
             animator.SetBool(IsRunning, false);
+        }
     }
 }

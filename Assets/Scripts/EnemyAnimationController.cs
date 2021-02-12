@@ -35,7 +35,12 @@ public class EnemyAnimationController : MonoBehaviour
         
         animator.SetBool(IsRunning, false);
         animator.SetTrigger(Death);
+
+        var healthBar = enemy.GetComponent<EnemyHealthBarController>().healthBar;
+    
+        healthBar.SetHealthInPercents(0f);
         
+        Destroy(healthBar.gameObject, 0.5f);
         Destroy(gameObject, 0.5f);
     }
 }
