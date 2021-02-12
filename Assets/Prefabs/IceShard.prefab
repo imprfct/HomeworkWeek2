@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295309796488
 Transform:
@@ -4899,7 +4899,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295563094608
 Transform:
@@ -9782,7 +9782,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295628051111
 Transform:
@@ -14625,7 +14625,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295715920687
 Transform:
@@ -19549,7 +19549,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295756999873
 Transform:
@@ -24419,7 +24419,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325295893947074
 Transform:
@@ -29359,7 +29359,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296003977347
 Transform:
@@ -34283,7 +34283,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296041128573
 Transform:
@@ -39126,7 +39126,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296100924281
 Transform:
@@ -43969,7 +43969,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296210919554
 Transform:
@@ -48913,7 +48913,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296383125404
 Transform:
@@ -53796,7 +53796,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296514046094
 Transform:
@@ -58720,7 +58720,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325296969104493
 Transform:
@@ -63648,7 +63648,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325297032846482
 Transform:
@@ -68500,7 +68500,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325297036038168
 Transform:
@@ -73478,7 +73478,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325297227213693
 Transform:
@@ -78405,7 +78405,7 @@ GameObject:
   m_TagString: Shard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1920325297268671248
 Transform:
@@ -83387,7 +83387,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920325297268671343}
   m_Material: {fileID: 13400000, guid: ed276060a144d9748a9be93fdc726935, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

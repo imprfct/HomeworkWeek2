@@ -1,25 +1,27 @@
+using System;
 using UnityEngine;
 
 public class ShardBounceManager : MonoBehaviour
 {
-    public float maxBouncesCount = 3;
+    [SerializeField] private float maxBouncesCount = 3;
     private float _bouncesCount;
-
+    
     private void Update()
     {
         if(_bouncesCount >= maxBouncesCount)
             Destroy(gameObject);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("BordersOfMap"))
+        if (other.collider.CompareTag("BordersOfMap"))
         {
             Destroy(gameObject);
             return;
         }
 
-        if (other.CompareTag("Walls") || other.CompareTag("Terrain"))
+        if (other.collider.CompareTag("Walls"))
             _bouncesCount++;
     }
+
 }
