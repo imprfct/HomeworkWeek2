@@ -1,41 +1,35 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public event Action<GameObject> EnemySpawned; 
+    
     [SerializeField] private EnemiesManager enemiesManager;
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private TerrainData terrain;
     
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private RectTransform targetCanvas;
+    [SerializeField] private TerrainPointProvider pointProvider;
     
-    private const float NewEnemyCooldown = 5;
-    private float _elapsed;
-    
-    private float _terrainSizeX, _terrainSizeZ;
-    private const float OffsetFromTerrainEdges = 17f;
-
-    private void Start()
-    {
-        _terrainSizeX = terrain.size.x;
-        _terrainSizeZ = terrain.size.z;
-    }
+    [SerializeField] private float newEnemyCooldown = 5;
+    private float _elapsedTimeSinceLastSpawn;
 
     private void Update()
     {
-        _elapsed += Time.deltaTime;
+        _elapsedTimeSinceLastSpawn += Time.deltaTime;
         
         if(IsCooldownExpired())
             SpawnEnemy();
         
-        _elapsed %= NewEnemyCooldown;
+        _elapsedTimeSinceLastSpawn %= newEnemyCooldown;
     }
 
     private bool IsCooldownExpired()
     {
-        if (_elapsed < NewEnemyCooldown)
+        if (_elapsedTimeSinceLastSpawn < newEnemyCooldown)
             return false;
 
         return true;
@@ -43,18 +37,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var enemy = Instantiate(enemyPrefab, getRandomPosition(), Quaternion.identity);
+        var enemy = Instantiate(enemyPrefab, pointProvider.getRandomPosition(), Quaternion.identity);
         enemy.GetComponent<HealthBarController>().HealthBar = CreateHealthBar(enemy);
-        enemiesManager.enemies.Add(enemy);
-    }
-
-    private Vector3 getRandomPosition()
-    {
-        var x = Random.Range(0 + OffsetFromTerrainEdges, _terrainSizeX - OffsetFromTerrainEdges);
-        var y = 0f;
-        var z = Random.Range(0, _terrainSizeZ);
-
-        return new Vector3(x, y, z);
+        EnemySpawned?.Invoke(enemy);
     }
 
     private HealthBar CreateHealthBar(GameObject enemy)

@@ -4,35 +4,23 @@ using Random = UnityEngine.Random;
 
 public class EnemyMovingController : MonoBehaviour
 {
-    [SerializeField] private TerrainData terrain;
+    public bool isMoving { get; set; }
+    public bool isAlive { get; set; } = true;
+    
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private TerrainPointProvider pointProvider;
     
-    private Vector3 _target;
-    public bool isMoving;
-    public bool isAlive = true;
-    
-    private float _terrainSizeX, _terrainSizeZ;
-    private const float OffsetFromTerrainEdges = 17f; 
-    
-    private void Start()
-    {
-        _terrainSizeX = terrain.size.x;
-        _terrainSizeZ = terrain.size.z;
-    }
-
     private void Update()
     {
-        if ((!isMoving || NeedsNewTarget()) && isAlive)
+        if (NeedsNewTarget() && isAlive)
         {
             SetNewTarget();
         }
-        
-        // TODO: Исправить ходьбу задом
     }
 
     private bool NeedsNewTarget()
     {
-        if (agent.destination == gameObject.transform.position)
+        if (!agent.hasPath)
         {
             isMoving = false;
             return true;
@@ -43,13 +31,7 @@ public class EnemyMovingController : MonoBehaviour
 
     private void SetNewTarget()
     {
-        var x = Random.Range(0 + OffsetFromTerrainEdges, _terrainSizeX - OffsetFromTerrainEdges);
-        var y = 0f;
-        var z = Random.Range(0, _terrainSizeZ);
-        
-        _target =  new Vector3(x, y, z);
         isMoving = true;
-        
-        agent.SetDestination(_target);
+        agent.SetDestination(pointProvider.getRandomPosition());
     }
 }

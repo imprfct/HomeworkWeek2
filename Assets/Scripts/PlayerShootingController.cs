@@ -88,8 +88,8 @@ public class PlayerShootingController : MonoBehaviour
              */
             catch (MissingReferenceException){ }
         }
+        
         _closestEnemy = closest;
-
     }
 
     public bool PlayerMayAttackEnemy()

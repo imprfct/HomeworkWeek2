@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyAnimationController : MonoBehaviour
 {
@@ -20,7 +20,6 @@ public class EnemyAnimationController : MonoBehaviour
             animator.SetBool(IsRunning, false);
             animator.SetTrigger(Death);
         }
-            
     }
 
     private bool Running()

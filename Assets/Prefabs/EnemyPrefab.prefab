@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: -3239643052649976255}
   - component: {fileID: 8310605202814882490}
   - component: {fileID: -8665603210484283499}
+  - component: {fileID: -7771885570771296760}
   m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -184,10 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb2baeec45f66e4590b8ea59ac58194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
   agent: {fileID: 5145800279972073281}
-  isMoving: 1
-  isAlive: 1
+  pointProvider: {fileID: -7771885570771296760}
 --- !u!114 &8310605202814882490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +202,7 @@ MonoBehaviour:
   animator: {fileID: 9558302}
   enemy: {fileID: -3239643052649976255}
   healthBarController: {fileID: -8665603210484283499}
+  enemiesManager: {fileID: 0}
 --- !u!114 &-8665603210484283499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,10 +215,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4075e456fbed848bb487aa1cd82e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLogic: {fileID: 0}
   minimalDamageByShard: 20
   maximumDamageByShard: 60
   damageByHitWithPlayer: 30
   maxHealthPoints: 100
+--- !u!114 &-7771885570771296760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcea68804f8967f4d84e029621f02786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
+  offsetFromTerrainEdges: 17
 --- !u!1 &118702
 GameObject:
   m_ObjectHideFlags: 0
