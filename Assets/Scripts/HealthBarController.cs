@@ -21,10 +21,13 @@ public class HealthBarController : MonoBehaviour
         _currentHealthPoints = maxHealthPoints;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        TakeDamage(by: other.tag);
-
+        TakeDamage(by: other.collider.tag);
+        
+        if(other.collider.CompareTag("Shard"))
+            Destroy(other.collider.gameObject);
+        
         if (IsDead())
         {
             // Если умер враг
@@ -32,8 +35,8 @@ public class HealthBarController : MonoBehaviour
             {
                 var enemy = gameObject.GetComponent<EnemyMovingController>();
                 
-                enemy.isAlive = false;
-                enemy.isMoving = false;
+                enemy.IsAlive = false;
+                enemy.IsMoving = false;
 
                 HealthBar.SetHealthInPercents(0f);
         

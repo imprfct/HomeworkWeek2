@@ -24,7 +24,7 @@ public class EnemyAnimationController : MonoBehaviour
 
     private bool Running()
     {
-        if (enemy.isMoving)
+        if (enemy.IsMoving)
             return true;
 
         return false;

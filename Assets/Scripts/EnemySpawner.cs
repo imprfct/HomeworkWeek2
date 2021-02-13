@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -37,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var enemy = Instantiate(enemyPrefab, pointProvider.getRandomPosition(), Quaternion.identity);
+        var enemy = Instantiate(enemyPrefab, pointProvider.GetPoint(), Quaternion.identity);
         enemy.GetComponent<HealthBarController>().HealthBar = CreateHealthBar(enemy);
         EnemySpawned?.Invoke(enemy);
     }

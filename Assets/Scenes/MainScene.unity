@@ -451,7 +451,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -492,7 +492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 25, y: 10, z: 1.6599998}
+  m_LocalPosition: {x: 25, y: 10, z: 17.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -692,9 +692,12 @@ GameObject:
   - component: {fileID: 1225792407}
   - component: {fileID: 1225792406}
   - component: {fileID: 1225792405}
-  m_Layer: 0
+  - component: {fileID: 1225792410}
+  - component: {fileID: 1225792409}
+  - component: {fileID: 1225792408}
+  m_Layer: 8
   m_Name: Exit
-  m_TagString: BordersOfMap
+  m_TagString: ExitDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -721,7 +724,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225792403}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -775,6 +778,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225792403}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1225792408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225792403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPrefab: {fileID: 3668614768477880281, guid: 4d8602d0725c66b41a0113f8811d051c, type: 3}
+  gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
+  canvas: {fileID: 1153015516}
+  enemiesToProceed: 0
+--- !u!114 &1225792409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225792403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e07e9cf6626ff047959ec9f667510b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 1225792408}
+--- !u!54 &1225792410
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225792403}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1664880239
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,9 +835,12 @@ GameObject:
   - component: {fileID: 1664880243}
   - component: {fileID: 1664880242}
   - component: {fileID: 1664880241}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: BordersOfMap
+  - component: {fileID: 1664880246}
+  - component: {fileID: 1664880245}
+  - component: {fileID: 1664880244}
+  m_Layer: 8
+  m_Name: EnterDoor
+  m_TagString: EnterDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -802,8 +853,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664880239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 0, z: 0}
-  m_LocalScale: {x: 5.4862504, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5.4862504, y: 5, z: 1.0440075}
   m_Children: []
   m_Father: {fileID: 9073800642412133412}
   m_RootOrder: 3
@@ -816,7 +867,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664880239}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -870,6 +921,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664880239}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1664880244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664880239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPrefab: {fileID: 3668614768477880281, guid: 4d8602d0725c66b41a0113f8811d051c, type: 3}
+  gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
+  canvas: {fileID: 1153015516}
+  enemiesToProceed: 10
+--- !u!114 &1664880245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664880239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e07e9cf6626ff047959ec9f667510b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 1664880244}
+--- !u!54 &1664880246
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664880239}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &1840965930
 Animator:
   serializedVersion: 3
@@ -1004,7 +1100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148702404875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: 6.8}
+  m_LocalPosition: {x: 25, y: 0, z: 23.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2165227072820106582}
@@ -1066,11 +1162,13 @@ GameObject:
   - component: {fileID: 543450652978461617}
   - component: {fileID: 1840965930}
   - component: {fileID: 919132148702404877}
+  - component: {fileID: 919132148702404882}
   - component: {fileID: 1840965932}
   - component: {fileID: 919132148702404878}
   - component: {fileID: 919132148702404876}
-  - component: {fileID: 919132148702404879}
+  - component: {fileID: 919132148702404881}
   - component: {fileID: 919132148702404880}
+  - component: {fileID: 919132148702404879}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1093,7 +1191,6 @@ MonoBehaviour:
   animator: {fileID: 1840965930}
   movementController: {fileID: 1840965932}
   shootingController: {fileID: 919132148702404878}
-  enemiesManager: {fileID: 9073800640892949942}
 --- !u!136 &919132148702404877
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1135,12 +1232,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132148702404875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a8c75b27168bb4fbb41a2cb576ab74, type: 3}
+  m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
-  playerTransform: {fileID: 543450652978461617}
-  targetCanvas: {fileID: 1153015517}
+  winPrefab: {fileID: 0}
+  gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
+  canvas: {fileID: 1153015516}
+  enemiesToProceed: 0
 --- !u!114 &919132148702404880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,10 +1251,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4075e456fbed848bb487aa1cd82e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLogic: {fileID: 919132148702404879}
   minimalDamageByShard: 20
   maximumDamageByShard: 60
   damageByHitWithPlayer: 30
   maxHealthPoints: 100
+--- !u!114 &919132148702404881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148702404875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cf03eecacebf2429a13da592a588ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
+  playerTransform: {fileID: 543450652978461617}
+  targetCanvas: {fileID: 1153015517}
+--- !u!54 &919132148702404882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148702404875}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1031632034588246508
 Transform:
   m_ObjectHideFlags: 0
@@ -3343,6 +3473,7 @@ GameObject:
   - component: {fileID: 9073800640892949938}
   - component: {fileID: 9073800640892949942}
   - component: {fileID: 9073800640892949941}
+  - component: {fileID: 9073800640892949943}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Terrain
@@ -3423,9 +3554,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesManager: {fileID: 9073800640892949942}
   enemyPrefab: {fileID: 106386, guid: 6d19ed50e08fbbe4a886e54fd21cbaf2, type: 3}
-  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
   healthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
   targetCanvas: {fileID: 1153015517}
+  pointProvider: {fileID: 9073800640892949943}
+  newEnemyCooldown: 5
 --- !u!114 &9073800640892949942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3438,7 +3570,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc5667fb614d404782df4c464461253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 9073800640892949941}
   enemies: []
+--- !u!114 &9073800640892949943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073800640892949937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcea68804f8967f4d84e029621f02786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
+  offsetFromTerrainEdges: 35
 --- !u!1 &9073800641180463431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,7 +4024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073800642085782168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25, y: 0.5, z: 0}
+  m_LocalPosition: {x: 25, y: 0.5, z: 35}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 9073800641527697249}

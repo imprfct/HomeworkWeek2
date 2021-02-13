@@ -4,8 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
+    [SerializeField] private GameObject winPrefab;
     [SerializeField] private GameObject gameOverPrefab;
     [SerializeField] [CanBeNull] private Canvas canvas;
+    [SerializeField] private int enemiesToProceed = 10;
+
+    public void Win()
+    {
+        Time.timeScale = 0;
+        Instantiate(winPrefab, canvas.transform, false);
+    }
     
     public void GameOver()
     {

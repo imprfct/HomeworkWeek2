@@ -54,8 +54,8 @@ public class EnemyHealthBarController : MonoBehaviour
 
     private void KillEnemy()
     {
-        enemy.isAlive = false;
-        enemy.isMoving = false;
+        enemy.IsAlive = false;
+        enemy.IsMoving = false;
 
         HealthBar.SetHealthInPercents(0f);
         
