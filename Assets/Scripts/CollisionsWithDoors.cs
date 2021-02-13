@@ -9,7 +9,6 @@ public class CollisionsWithDoors : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("dasdasda");
         // Если обрабатываем дверь, куда стремится враг
         if (CompareTag("EnterDoor"))
         {

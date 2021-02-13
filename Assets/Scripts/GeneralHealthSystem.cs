@@ -4,11 +4,13 @@ using UnityEngine.UI;
 
 public class GeneralHealthSystem : MonoBehaviour
 {
-    [SerializeField] private List<Image> lives;
     private int _livesCount;
+
+    [SerializeField] private List<Image> lives;
+    [SerializeField] private Sprite emptyHeart;
     
     [SerializeField] private CollisionsWithDoors enterDoorCollisionScript;
-    [SerializeField] private GameLogic _gameLogic;
+    [SerializeField] private GameLogic gameLogic;
     
     private void Awake()
     {
@@ -22,13 +24,12 @@ public class GeneralHealthSystem : MonoBehaviour
         
         if (liveIndex == 0)
         {
-            Destroy(lives[liveIndex].gameObject);
-            _gameLogic.GameOver();
+            lives[liveIndex].sprite = emptyHeart;
+            gameLogic.GameOver();
             return;
         }
         
-        Destroy(lives[liveIndex].gameObject);
-        lives.RemoveAt(liveIndex);
+        lives[liveIndex].sprite = emptyHeart;
         
         _livesCount -= 1;
     }
