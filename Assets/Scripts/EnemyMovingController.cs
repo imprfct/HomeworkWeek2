@@ -15,10 +15,11 @@ public class EnemyMovingController : MonoBehaviour
     
     private void Update()
     {
+        if (!IsAlive)
+            agent.isStopped = true;
+        
         if (NeedsNewTarget() && IsAlive)
-        {
             SetNewTarget();
-        }
     }
 
     private bool NeedsNewTarget()

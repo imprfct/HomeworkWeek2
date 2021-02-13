@@ -25,23 +25,12 @@ public class HealthBarController : MonoBehaviour
     {
         TakeDamage(by: other.collider.tag);
         
-        if(other.collider.CompareTag("Shard"))
-            Destroy(other.collider.gameObject);
-        
         if (IsDead())
         {
             // Если умер враг
             if (gameObject.CompareTag("Enemy"))
             {
-                var enemy = gameObject.GetComponent<EnemyMovingController>();
-                
-                enemy.IsAlive = false;
-                enemy.IsMoving = false;
-
-                HealthBar.SetHealthInPercents(0f);
-        
-                Destroy(HealthBar.gameObject, 0.5f);
-                Destroy(gameObject, 0.5f);
+                EnemyDeath(0.5f);
             }
             // Если умер игрок
             else if (gameObject.CompareTag("Player"))
@@ -69,6 +58,19 @@ public class HealthBarController : MonoBehaviour
         }
         
         HealthBar.SetHealthInPercents(CalculatePercentHp(_currentHealthPoints));
+    }
+
+    public void EnemyDeath(float latencyBeforeDeath)
+    {
+        var enemy = gameObject.GetComponent<EnemyMovingController>();
+        
+        enemy.IsAlive = false;
+        enemy.IsMoving = false;
+
+        HealthBar.SetHealthInPercents(0f);
+        
+        Destroy(HealthBar.gameObject, latencyBeforeDeath);
+        Destroy(gameObject, latencyBeforeDeath);
     }
     
     public bool IsDead()

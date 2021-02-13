@@ -1,15 +1,24 @@
+using System;
 using UnityEngine;
 
 public class CollisionsWithDoors : MonoBehaviour
 {
+    public Action OnEnemyReachedTargetDoor;
+    
     [SerializeField] private GameLogic game;
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("dasdasda");
         // Если обрабатываем дверь, куда стремится враг
-        if(CompareTag("EnterDoor"))
+        if (CompareTag("EnterDoor"))
+        {
             if (other.collider.CompareTag("Enemy"))
-                game.GameOver();
+            {
+                OnEnemyReachedTargetDoor.Invoke();
+                other.collider.gameObject.GetComponent<HealthBarController>().EnemyDeath(0f);
+            }
+        }
         
         // Если обрабатываем дверь, куда нужно попасть игроку
         if(CompareTag("ExitDoor"))
