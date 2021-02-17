@@ -8,8 +8,10 @@ public class HealthPointsBonus : Bonus
     public override void Effect(GameObject player)
     {
         base.Effect(player);
-        Player.GetComponent<HealthBarController>().MaxHealthPoints += _healthToAdd;
-        Player.GetComponent<HealthBarController>().CurrentHealthPoints += _healthToAdd;
+
+        var healthBarController = Player.GetComponent<HealthBarController>();
+        healthBarController.MaxHealthPoints += _healthToAdd;
+        healthBarController.CurrentHealthPoints += _healthToAdd;
         
         Debug.Log("Added HP to player");
     }

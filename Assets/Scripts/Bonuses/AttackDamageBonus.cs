@@ -8,8 +8,10 @@ public class AttackDamageBonus : Bonus
     public override void Effect(GameObject player)
     {
         base.Effect(player);
-        Player.GetComponent<PlayerShootingController>().minDamage += _damageToAdd;
-        Player.GetComponent<PlayerShootingController>().maxDamage += _damageToAdd;
+        
+        var shootingController = Player.GetComponent<PlayerShootingController>();
+        shootingController.minDamage += _damageToAdd;
+        shootingController.maxDamage += _damageToAdd;
         
         Debug.Log("Added DMG to player");
     }
