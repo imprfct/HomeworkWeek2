@@ -77,8 +77,8 @@ GameObject:
   - component: {fileID: 8991707992796629231}
   - component: {fileID: -3239643052649976255}
   - component: {fileID: 8310605202814882490}
-  - component: {fileID: -8665603210484283499}
   - component: {fileID: -7771885570771296760}
+  - component: {fileID: 4390708264869013475}
   m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -188,7 +188,7 @@ MonoBehaviour:
   _chanceToBeTheOne: 0.5
   _enemyTarget: {x: 25, y: 0, z: 0}
   _agent: {fileID: 5145800279972073281}
-  _pointProvider: {fileID: 0}
+  _pointProvider: {fileID: -7771885570771296760}
 --- !u!114 &8310605202814882490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +203,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 9558302}
   _enemy: {fileID: -3239643052649976255}
-  _healthBarController: {fileID: -8665603210484283499}
---- !u!114 &-8665603210484283499
+  _healthBarController: {fileID: 4390708264869013475}
+--- !u!114 &-7771885570771296760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcea68804f8967f4d84e029621f02786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
+  _offsetFromTerrainEdges: 35
+--- !u!114 &4390708264869013475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,21 +234,8 @@ MonoBehaviour:
   _minimalDamageByShard: 20
   _maximumDamageByShard: 60
   _damageByHitWithPlayer: 30
-  _maxHealthPoints: 100
---- !u!114 &-7771885570771296760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcea68804f8967f4d84e029621f02786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
-  _offsetFromTerrainEdges: 35
+  MaxHealthPoints: 100
+  CurrentHealthPoints: 0
 --- !u!1 &118702
 GameObject:
   m_ObjectHideFlags: 0

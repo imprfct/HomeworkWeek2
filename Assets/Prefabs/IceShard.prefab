@@ -78400,6 +78400,7 @@ GameObject:
   - component: {fileID: 3758174655974172822}
   - component: {fileID: 8332622515011137921}
   - component: {fileID: 2022629868543680794}
+  - component: {fileID: 6206675547209238223}
   m_Layer: 6
   m_Name: IceShard
   m_TagString: Shard
@@ -83378,7 +83379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac89db81287622439883d9a5a4ec179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBouncesCount: 5
+  _maxBouncesCount: 3
 --- !u!135 &8332622515011137921
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -83408,3 +83409,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &6206675547209238223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920325297268671343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf891c9d5fd3bfe4a91af986c7a2ea5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

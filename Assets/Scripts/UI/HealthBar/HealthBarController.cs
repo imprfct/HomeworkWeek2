@@ -6,13 +6,10 @@ public class HealthBarController : MonoBehaviour
 {
     [NonSerialized]
     public HealthBar HealthBar;
-
+    
     [SerializeField]
     private GameLogic _gameLogic; 
-    [SerializeField] 
-    private float _minimalDamageByShard = 20f;
-    [SerializeField]
-    private float _maximumDamageByShard = 60f;
+    
     [SerializeField] 
     private float _damageByHitWithPlayer = 30f;
     
@@ -43,14 +40,15 @@ public class HealthBarController : MonoBehaviour
         }
     }
     
+    public void TakeDamage(float damage)
+    {
+        CurrentHealthPoints -= damage;
+    }
+    
     private void TakeDamage(string by)
     {
         switch (by)
         {
-            case "Shard":
-                CurrentHealthPoints -= Random.Range(_minimalDamageByShard, _maximumDamageByShard);
-                break;
-            
             case "Player":
                 CurrentHealthPoints -= _damageByHitWithPlayer;
                 break;

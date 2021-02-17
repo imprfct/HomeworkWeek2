@@ -5,13 +5,25 @@ using UnityEngine.Serialization;
 
 public class PlayerShootingController : MonoBehaviour
 {
-    [SerializeField] private EnemiesManager enemiesManager;
-    [SerializeField] private GameObject shardPrefab;
-    [SerializeField] private GameObject spawner;
+    [SerializeField]
+    public float maxDamage = 20f;
+
+    [SerializeField] 
+    public float minDamage = 50f;
     
-    [SerializeField] private float shootCooldown = 1;
-    [SerializeField] private float attackRadius = 50f;
-    [SerializeField] private float shardSpeed = 150f;
+    [SerializeField] 
+    private EnemiesManager enemiesManager;
+    [SerializeField]
+    private GameObject shardPrefab;
+    [SerializeField]
+    private GameObject spawner;
+    
+    [SerializeField]
+    private float shootCooldown = 1;
+    [SerializeField]
+    private float attackRadius = 50f;
+    [SerializeField]
+    private float shardSpeed = 150f;
     private float _elapsedTimeSinceLastShoot;
     
     private List<GameObject> _enemies;
@@ -48,7 +60,7 @@ public class PlayerShootingController : MonoBehaviour
         /*
          * Эта процедура вызывается из ивента анимации атаки в момент, когда анимация каста окончена
          */
-        if (_closestEnemy)
+        if (_closestEnemy != null)
         {
             var spawnerPosition = spawner.transform.position;
             var enemyPosition = _closestEnemy.transform.position;
@@ -59,6 +71,10 @@ public class PlayerShootingController : MonoBehaviour
             transform.LookAt(_closestEnemy.transform);
             var shard = Instantiate(shardPrefab,
                 spawnerPosition, Quaternion.identity);
+            var shardSettings = shard.GetComponent<ShardHitManager>();
+            shardSettings.MinDamage = minDamage;
+            shardSettings.MaxDamage = maxDamage;
+            
             shard.transform.LookAt(_closestEnemy.transform);
             shard.GetComponent<Rigidbody>().velocity = directionToTarget * shardSpeed * Time.time;
         }
