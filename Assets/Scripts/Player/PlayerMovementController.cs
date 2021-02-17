@@ -6,7 +6,7 @@ public class PlayerMovementController : MonoBehaviour
     [NonSerialized] public bool isRunning;
 
     [SerializeField] private PlayerJoystickController _joystickController;
-    [SerializeField] private float _speed = 7;
+    [SerializeField] public float _speed = 7;
 
     void Update()
     {
