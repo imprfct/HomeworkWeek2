@@ -16,13 +16,12 @@ public class HealthBarController : MonoBehaviour
     [SerializeField] 
     private float _damageByHitWithPlayer = 30f;
     
-    [SerializeField]
-    private float _maxHealthPoints = 100;
-    private float _currentHealthPoints;
+    public float MaxHealthPoints = 100;
+    public float CurrentHealthPoints;
     
     private void Start()
     {
-        _currentHealthPoints = _maxHealthPoints;
+        CurrentHealthPoints = MaxHealthPoints;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -49,19 +48,19 @@ public class HealthBarController : MonoBehaviour
         switch (by)
         {
             case "Shard":
-                _currentHealthPoints -= Random.Range(_minimalDamageByShard, _maximumDamageByShard);
+                CurrentHealthPoints -= Random.Range(_minimalDamageByShard, _maximumDamageByShard);
                 break;
             
             case "Player":
-                _currentHealthPoints -= _damageByHitWithPlayer;
+                CurrentHealthPoints -= _damageByHitWithPlayer;
                 break;
             
             case "Enemy":
-                _currentHealthPoints -= _damageByHitWithPlayer;
+                CurrentHealthPoints -= _damageByHitWithPlayer;
                 break;
         }
         
-        HealthBar.SetHealthInPercents(CalculatePercentHp(_currentHealthPoints));
+        HealthBar.SetHealthInPercents(CalculatePercentHp(CurrentHealthPoints));
     }
 
     public void EnemyDeath(float latencyBeforeDeath)
@@ -79,7 +78,7 @@ public class HealthBarController : MonoBehaviour
     
     public bool IsDead()
     {
-        if (_currentHealthPoints <= 0)
+        if (CurrentHealthPoints <= 0)
             return true;
 
         return false;
@@ -87,6 +86,6 @@ public class HealthBarController : MonoBehaviour
     
     private float CalculatePercentHp(float hp)
     {
-        return Mathf.Clamp(hp / _maxHealthPoints, 0, 1);
+        return Mathf.Clamp(hp / MaxHealthPoints, 0, 1);
     }
 }
