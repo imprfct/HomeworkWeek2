@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
@@ -11,7 +12,7 @@ public class EnemyAnimationController : MonoBehaviour
     
     [SerializeField] 
     private HealthBarController _healthBarController;
-    
+
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int Death = Animator.StringToHash("Death");
     

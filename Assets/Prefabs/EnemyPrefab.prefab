@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 8310605202814882490}
   - component: {fileID: -7771885570771296760}
   - component: {fileID: 4390708264869013475}
+  - component: {fileID: 8530034904484776134}
   m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -231,11 +232,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameLogic: {fileID: 0}
-  _minimalDamageByShard: 20
-  _maximumDamageByShard: 60
   _damageByHitWithPlayer: 30
+  _labelUpdater: {fileID: 8530034904484776134}
   MaxHealthPoints: 100
   CurrentHealthPoints: 0
+--- !u!114 &8530034904484776134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea930a24c3168c4a9e955cdfec4f6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118702
 GameObject:
   m_ObjectHideFlags: 0

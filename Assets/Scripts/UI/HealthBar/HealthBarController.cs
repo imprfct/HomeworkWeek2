@@ -1,6 +1,6 @@
 using System;
+using Assets.Scripts.UI;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class HealthBarController : MonoBehaviour
 {
@@ -13,8 +13,13 @@ public class HealthBarController : MonoBehaviour
     [SerializeField] 
     private float _damageByHitWithPlayer = 30f;
     
+    [SerializeField]
+    private KilledEnemiesUpdater _labelUpdater;
+    
     public float MaxHealthPoints = 100;
     public float CurrentHealthPoints;
+    
+    
     
     private void Start()
     {
@@ -69,7 +74,9 @@ public class HealthBarController : MonoBehaviour
         enemy.IsMoving = false;
 
         HealthBar.SetHealthInPercents(0f);
-        
+
+        _labelUpdater.IncrementKilledEnemiesLabel();
+
         Destroy(HealthBar.gameObject, latencyBeforeDeath);
         Destroy(gameObject, latencyBeforeDeath);
     }
