@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private float healthBarOffsetY = -20f; 
-    
+    [SerializeField] private float _healthBarOffsetY = -20f; 
     private Camera _camera;
     private RectTransform _targetCanvas;
     private RectTransform _healthBar;
     private Transform _objectToFollow;
-
     private RectTransform _healthBarTransform;
 
     public void SetHealthBarData(Transform targetTransform, RectTransform healthBarPanel)
@@ -42,7 +40,7 @@ public class HealthBar : MonoBehaviour
         Vector2 viewportPosition = _camera.WorldToViewportPoint(_objectToFollow.position);
         Vector2 worldObjectScreenPosition = new Vector2(
             ((viewportPosition.x * canvasSizeDelta.x) - (canvasSizeDelta.x * 0.5f)),
-            ((viewportPosition.y * canvasSizeDelta.y) - (canvasSizeDelta.y * 0.5f)) + healthBarOffsetY);
+            ((viewportPosition.y * canvasSizeDelta.y) - (canvasSizeDelta.y * 0.5f)) + _healthBarOffsetY);
         _healthBar.anchoredPosition = worldObjectScreenPosition;
     }
 }

@@ -5,7 +5,8 @@ public class CollisionsWithDoors : MonoBehaviour
 {
     public Action OnEnemyReachedTargetDoor;
     
-    [SerializeField] private GameLogic game;
+    [SerializeField] 
+    private GameLogic _game;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -22,6 +23,6 @@ public class CollisionsWithDoors : MonoBehaviour
         // Если обрабатываем дверь, куда нужно попасть игроку
         if(CompareTag("ExitDoor"))
             if(other.collider.CompareTag("Player"))
-                game.Win();
+                _game.Win();
     }
 }

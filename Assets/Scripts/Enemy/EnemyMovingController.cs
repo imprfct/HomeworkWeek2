@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -9,16 +8,20 @@ public class EnemyMovingController : MonoBehaviour
     public bool IsAlive { get; set; } = true;
 
     // Шанс того, что враг побежит на выход, а не будет патрулировать между рандомными позициями
-    [SerializeField] private float chanceToBeTheOne = 0.5f;
-    [SerializeField] private Vector3 enemyTarget = new Vector3(25, 0, 0);
+    [SerializeField] 
+    private float _chanceToBeTheOne = 0.5f;
+    [SerializeField] 
+    private Vector3 _enemyTarget = new Vector3(25, 0, 0);
     
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private TerrainPointProvider pointProvider;
+    [SerializeField] 
+    private NavMeshAgent _agent;
+    [SerializeField]
+    private TerrainPointProvider _pointProvider;
     
     private void Update()
     {
         if (!IsAlive)
-            agent.isStopped = true;
+            _agent.isStopped = true;
         
         if (NeedsNewTarget() && IsAlive)
             SetNewTarget();
@@ -26,7 +29,7 @@ public class EnemyMovingController : MonoBehaviour
 
     private bool NeedsNewTarget()
     {
-        if (!agent.hasPath)
+        if (!_agent.hasPath)
         {
             IsMoving = false;
             return true;
@@ -41,16 +44,16 @@ public class EnemyMovingController : MonoBehaviour
 
         if (EnemyWillBeTheOne())
         {
-            agent.SetDestination(enemyTarget);
+            _agent.SetDestination(_enemyTarget);
         }
         else
         {
-            agent.SetDestination(pointProvider.GetPoint());
+            _agent.SetDestination(_pointProvider.GetPoint());
         }
     }
 
     private bool EnemyWillBeTheOne()
     {
-        return Random.Range(0, 1) < chanceToBeTheOne;
+        return Random.Range(0, 1) < _chanceToBeTheOne;
     }
 }

@@ -5,14 +5,19 @@ public class EnemySpawner : MonoBehaviour
 {
     public event Action<GameObject> EnemySpawned; 
     
-    [SerializeField] private EnemiesManager enemiesManager;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] 
+    private GameObject _enemyPrefab;
+    [SerializeField]
+    private GameObject _healthBarPrefab;
     
-    [SerializeField] private GameObject healthBarPrefab;
-    [SerializeField] private RectTransform targetCanvas;
-    [SerializeField] private TerrainPointProvider pointProvider;
+    [SerializeField]
+    private RectTransform _targetCanvas;
+    [SerializeField]
+    private TerrainPointProvider _pointProvider;
     
-    [SerializeField] private float newEnemyCooldown = 5;
+    [SerializeField]
+    private float _newEnemyCooldown = 5;
+    
     private float _elapsedTimeSinceLastSpawn;
 
     private void Update()
@@ -22,12 +27,12 @@ public class EnemySpawner : MonoBehaviour
         if(IsCooldownExpired())
             SpawnEnemy();
         
-        _elapsedTimeSinceLastSpawn %= newEnemyCooldown;
+        _elapsedTimeSinceLastSpawn %= _newEnemyCooldown;
     }
 
     private bool IsCooldownExpired()
     {
-        if (_elapsedTimeSinceLastSpawn < newEnemyCooldown)
+        if (_elapsedTimeSinceLastSpawn < _newEnemyCooldown)
             return false;
 
         return true;
@@ -35,17 +40,17 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var enemy = Instantiate(enemyPrefab, pointProvider.GetPoint(), Quaternion.identity);
+        var enemy = Instantiate(_enemyPrefab, _pointProvider.GetPoint(), Quaternion.identity);
         enemy.GetComponent<HealthBarController>().HealthBar = CreateHealthBar(enemy);
         EnemySpawned?.Invoke(enemy);
     }
 
     private HealthBar CreateHealthBar(GameObject enemy)
     {
-        var healthBarObject = Instantiate(healthBarPrefab);
+        var healthBarObject = Instantiate(_healthBarPrefab);
         
         var healthBar = healthBarObject.GetComponent<HealthBar>();
-        healthBar.SetHealthBarData(enemy.transform, targetCanvas);
+        healthBar.SetHealthBarData(enemy.transform, _targetCanvas);
 
         return healthBar;
     }

@@ -4,20 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
-    [SerializeField] private GameObject winPrefab;
-    [SerializeField] private GameObject gameOverPrefab;
-    [SerializeField] [CanBeNull] private Canvas canvas;
+    [SerializeField] 
+    private GameObject _winPrefab;
+    
+    [SerializeField]
+    private GameObject _gameOverPrefab;
+    
+    [SerializeField] 
+    [CanBeNull]
+    private Canvas _canvas;
     
     public void Win()
     {
         Time.timeScale = 0;
-        Instantiate(winPrefab, canvas.transform, false);
+        Instantiate(_winPrefab, _canvas.transform, false);
     }
     
     public void GameOver()
     {
         Time.timeScale = 0;
-        Instantiate(gameOverPrefab, canvas.transform, false);
+        Instantiate(_gameOverPrefab, _canvas.transform, false);
     }
 
     public void Restart()

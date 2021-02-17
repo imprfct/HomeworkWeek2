@@ -4,21 +4,25 @@ using Random = UnityEngine.Random;
 
 public class HealthBarController : MonoBehaviour
 {
-    [NonSerialized] public HealthBar HealthBar;
+    [NonSerialized]
+    public HealthBar HealthBar;
 
-    [SerializeField] private GameLogic gameLogic; 
+    [SerializeField]
+    private GameLogic _gameLogic; 
+    [SerializeField] 
+    private float _minimalDamageByShard = 20f;
+    [SerializeField]
+    private float _maximumDamageByShard = 60f;
+    [SerializeField] 
+    private float _damageByHitWithPlayer = 30f;
     
-    [SerializeField] private float minimalDamageByShard = 20f;
-    [SerializeField] private float maximumDamageByShard = 60f;
-
-    [SerializeField] private float damageByHitWithPlayer = 30f;
-    
-    [SerializeField] private float maxHealthPoints = 100;
+    [SerializeField]
+    private float _maxHealthPoints = 100;
     private float _currentHealthPoints;
     
     private void Start()
     {
-        _currentHealthPoints = maxHealthPoints;
+        _currentHealthPoints = _maxHealthPoints;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -35,7 +39,7 @@ public class HealthBarController : MonoBehaviour
             // Если умер игрок
             else if (gameObject.CompareTag("Player"))
             {
-                gameLogic.GameOver();
+                _gameLogic.GameOver();
             }
         }
     }
@@ -45,15 +49,15 @@ public class HealthBarController : MonoBehaviour
         switch (by)
         {
             case "Shard":
-                _currentHealthPoints -= Random.Range(minimalDamageByShard, maximumDamageByShard);
+                _currentHealthPoints -= Random.Range(_minimalDamageByShard, _maximumDamageByShard);
                 break;
             
             case "Player":
-                _currentHealthPoints -= damageByHitWithPlayer;
+                _currentHealthPoints -= _damageByHitWithPlayer;
                 break;
             
             case "Enemy":
-                _currentHealthPoints -= damageByHitWithPlayer;
+                _currentHealthPoints -= _damageByHitWithPlayer;
                 break;
         }
         
@@ -83,6 +87,6 @@ public class HealthBarController : MonoBehaviour
     
     private float CalculatePercentHp(float hp)
     {
-        return Mathf.Clamp(hp / maxHealthPoints, 0, 1);
+        return Mathf.Clamp(hp / _maxHealthPoints, 0, 1);
     }
 }

@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] private EnemySpawner _spawner;
     public List<GameObject> enemies;
+
+    [SerializeField] 
+    private EnemySpawner _spawner;
 
     public void Awake()
     {

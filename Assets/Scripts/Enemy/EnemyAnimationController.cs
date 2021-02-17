@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-    [SerializeField] private EnemyMovingController enemy;
-    [SerializeField] private HealthBarController healthBarController;
+    [SerializeField] 
+    private Animator _animator;
+    
+    [SerializeField] 
+    private EnemyMovingController _enemy;
+    
+    [SerializeField] 
+    private HealthBarController _healthBarController;
     
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int Death = Animator.StringToHash("Death");
@@ -13,18 +18,18 @@ public class EnemyAnimationController : MonoBehaviour
     void Update()
     {
         if (Running())
-            animator.SetBool(IsRunning, true);
+            _animator.SetBool(IsRunning, true);
 
-        if (healthBarController.IsDead())
+        if (_healthBarController.IsDead())
         {
-            animator.SetBool(IsRunning, false);
-            animator.SetTrigger(Death);
+            _animator.SetBool(IsRunning, false);
+            _animator.SetTrigger(Death);
         }
     }
 
     private bool Running()
     {
-        if (enemy.IsMoving)
+        if (_enemy.IsMoving)
             return true;
 
         return false;

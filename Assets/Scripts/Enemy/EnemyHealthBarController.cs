@@ -3,21 +3,27 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EnemyHealthBarController : MonoBehaviour
-{    
-    [SerializeField] private EnemyMovingController enemy;
+{
     [NonSerialized] public HealthBar HealthBar;
 
-    [SerializeField] private float minimalDamageByShard = 20f;
-    [SerializeField] private float maximumDamageByShard = 60f;
+    [SerializeField] 
+    private EnemyMovingController _enemy;
 
-    [SerializeField] private float damageByHitWithPlayer = 30f;
+    [SerializeField] 
+    private float _minimalDamageByShard = 20f;
+    [SerializeField]
+    private float _maximumDamageByShard = 60f;
 
-    [SerializeField] private float maxHealthPoints = 100;
+    [SerializeField] 
+    private float _damageByHitWithPlayer = 30f;
+
+    [SerializeField] 
+    private float _maxHealthPoints = 100;
     private float _currentHealthPoints;
 
     private void Start()
     {
-        _currentHealthPoints = maxHealthPoints;
+        _currentHealthPoints = _maxHealthPoints;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -33,11 +39,11 @@ public class EnemyHealthBarController : MonoBehaviour
         switch (by)
         {
             case "Shard":
-                _currentHealthPoints -= Random.Range(minimalDamageByShard, maximumDamageByShard);
+                _currentHealthPoints -= Random.Range(_minimalDamageByShard, _maximumDamageByShard);
                 break;
             
             case "Player":
-                _currentHealthPoints -= damageByHitWithPlayer;
+                _currentHealthPoints -= _damageByHitWithPlayer;
                 break;
         }
         
@@ -54,8 +60,8 @@ public class EnemyHealthBarController : MonoBehaviour
 
     private void KillEnemy()
     {
-        enemy.IsAlive = false;
-        enemy.IsMoving = false;
+        _enemy.IsAlive = false;
+        _enemy.IsMoving = false;
 
         HealthBar.SetHealthInPercents(0f);
         
@@ -65,6 +71,6 @@ public class EnemyHealthBarController : MonoBehaviour
     
     private float CalculatePercentHp(float hp)
     {
-        return Mathf.Clamp(hp / maxHealthPoints, 0, 1);
+        return Mathf.Clamp(hp / _maxHealthPoints, 0, 1);
     }
 }

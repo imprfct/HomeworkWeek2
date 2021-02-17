@@ -23,8 +23,16 @@ public class PlayerShootingController : MonoBehaviour
 
     public void Update()
     {
-        if (_enemies.Count > 0)
-            FindClosestEnemy();
+        if (_elapsedTimeSinceLastShoot < shootCooldown)
+        {
+            if (_enemies.Count > 0)
+            {
+                FindClosestEnemy();
+            }
+
+            _elapsedTimeSinceLastShoot = 0;
+        }
+        
         
         IterateCooldown();
     }

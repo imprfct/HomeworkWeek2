@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class ShardBounceManager : MonoBehaviour
 {
-    [SerializeField] private float maxBouncesCount = 3;
+    [SerializeField] 
+    private float _maxBouncesCount = 3;
     private float _bouncesCount;
     
     private void Update()
     {
-        if(_bouncesCount >= maxBouncesCount)
+        if(_bouncesCount >= _maxBouncesCount)
             Destroy(gameObject);
     }
 
