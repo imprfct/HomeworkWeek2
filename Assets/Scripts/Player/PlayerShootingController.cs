@@ -99,7 +99,7 @@ public class PlayerShootingController : MonoBehaviour
 
                 Vector3 diff = enemy.transform.position - position;
                 float currentDistance = diff.sqrMagnitude;
-                if (currentDistance < distance)
+                if (currentDistance < distance && enemy.GetComponent<HealthBarController>().IsDead() == false)
                 {
                     closest = enemy;
                     distance = currentDistance;

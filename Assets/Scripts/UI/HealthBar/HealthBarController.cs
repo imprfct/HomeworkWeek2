@@ -75,7 +75,7 @@ public class HealthBarController : MonoBehaviour
 
         HealthBar.SetHealthInPercents(0f);
 
-        _labelUpdater.IncrementKilledEnemiesLabel();
+        _labelUpdater.IncrementKilledEnemiesCounter();
 
         Destroy(HealthBar.gameObject, latencyBeforeDeath);
         Destroy(gameObject, latencyBeforeDeath);
