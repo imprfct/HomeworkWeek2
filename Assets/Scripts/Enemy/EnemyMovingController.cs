@@ -6,6 +6,8 @@ public class EnemyMovingController : MonoBehaviour
 {
     public bool IsMoving { get; set; }
     public bool IsAlive { get; set; } = true;
+    
+    public NavMeshAgent Agent;
 
     // Шанс того, что враг побежит на выход, а не будет патрулировать между рандомными позициями
     [SerializeField] 
@@ -13,15 +15,13 @@ public class EnemyMovingController : MonoBehaviour
     [SerializeField] 
     private Vector3 _enemyTarget = new Vector3(25, 0, 0);
     
-    [SerializeField] 
-    private NavMeshAgent _agent;
     [SerializeField]
     private TerrainPointProvider _pointProvider;
     
     private void Update()
     {
         if (!IsAlive)
-            _agent.isStopped = true;
+            Agent.isStopped = true;
         
         if (NeedsNewTarget() && IsAlive)
             SetNewTarget();
@@ -29,7 +29,7 @@ public class EnemyMovingController : MonoBehaviour
 
     private bool NeedsNewTarget()
     {
-        if (!_agent.hasPath)
+        if (!Agent.hasPath)
         {
             IsMoving = false;
             return true;
@@ -44,11 +44,11 @@ public class EnemyMovingController : MonoBehaviour
 
         if (EnemyWillBeTheOne())
         {
-            _agent.SetDestination(_enemyTarget);
+            Agent.SetDestination(_enemyTarget);
         }
         else
         {
-            _agent.SetDestination(_pointProvider.GetPoint());
+            Agent.SetDestination(_pointProvider.GetPoint());
         }
     }
 

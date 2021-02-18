@@ -72,7 +72,9 @@ public class HealthBarController : MonoBehaviour
         
         enemy.IsAlive = false;
         enemy.IsMoving = false;
-
+        
+        enemy.Agent.speed = 0;
+        
         HealthBar.SetHealthInPercents(0f);
 
         _labelUpdater.IncrementKilledEnemiesCounter();

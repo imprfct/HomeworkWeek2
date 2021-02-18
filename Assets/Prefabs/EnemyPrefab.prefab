@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb2baeec45f66e4590b8ea59ac58194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Agent: {fileID: 5145800279972073281}
   _chanceToBeTheOne: 0.5
   _enemyTarget: {x: 25, y: 0, z: 0}
-  _agent: {fileID: 5145800279972073281}
   _pointProvider: {fileID: -7771885570771296760}
 --- !u!114 &8310605202814882490
 MonoBehaviour:
