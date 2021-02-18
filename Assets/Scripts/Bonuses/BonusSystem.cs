@@ -29,15 +29,8 @@ namespace Assets.Scripts.Bonuses
             
             if (NeedsNewBuff(killedEnemiesCount))
             {
-                var random = new Random();
-                Instantiate(_bonusPanelPrefab, _canvas.transform, false);
-                
-                var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
-                for (int i = 0; i < 3; i++)
-                {
-                    var randomBonus = _bonuses[random.Next(_bonuses.Count)];
-                    bonuses[i].GetComponent<BonusSetter>().SetBonus(randomBonus);
-                }
+                SpawnBonusPanel();
+                Time.timeScale = 0;
             }        
             
             _lastKilledEnemiesCount = killedEnemiesCount;
@@ -52,6 +45,19 @@ namespace Assets.Scripts.Bonuses
             }
 
             return false;
+        }
+        
+        private void SpawnBonusPanel()
+        {
+            var random = new Random();
+            Instantiate(_bonusPanelPrefab, _canvas.transform, false);
+                
+            var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
+            for (int i = 0; i < 3; i++)
+            {
+                var randomBonus = _bonuses[random.Next(_bonuses.Count)];
+                bonuses[i].GetComponent<BonusSetter>().SetBonus(randomBonus);
+            }
         }
     }
 }
