@@ -74,6 +74,7 @@ public class HealthBarController : MonoBehaviour
         enemy.IsMoving = false;
         
         enemy.Agent.speed = 0;
+        enemy.Agent.enabled = false;
         
         HealthBar.SetHealthInPercents(0f);
 
@@ -85,7 +86,7 @@ public class HealthBarController : MonoBehaviour
     
     public bool IsDead()
     {
-        if (CurrentHealthPoints <= 0)
+        if (CalculatePercentHp(CurrentHealthPoints) == 0)
             return true;
 
         return false;

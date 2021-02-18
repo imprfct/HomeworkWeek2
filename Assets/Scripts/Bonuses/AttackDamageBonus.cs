@@ -12,7 +12,5 @@ public class AttackDamageBonus : Bonus
         var shootingController = Player.GetComponent<PlayerShootingController>();
         shootingController.minDamage += _damageToAdd;
         shootingController.maxDamage += _damageToAdd;
-        
-        Debug.Log("Added DMG to player");
     }
 }

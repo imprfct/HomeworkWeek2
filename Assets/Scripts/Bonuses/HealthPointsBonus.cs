@@ -12,7 +12,5 @@ public class HealthPointsBonus : Bonus
         var healthBarController = Player.GetComponent<HealthBarController>();
         healthBarController.MaxHealthPoints += _healthToAdd;
         healthBarController.CurrentHealthPoints += _healthToAdd;
-        
-        Debug.Log("Added HP to player");
     }
 }

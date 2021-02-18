@@ -16,8 +16,6 @@ namespace Assets.Scripts.Bonuses
             var animator = Player.GetComponent<Animator>();
             var newAttackSpeed = animator.GetFloat(AttackSpeedMultiplier) + _attackSpeedBonusPercent;
             animator.SetFloat(AttackSpeedMultiplier, newAttackSpeed);
-            
-            Debug.Log("Added AttackSpeed to player");
         }
     }
 }

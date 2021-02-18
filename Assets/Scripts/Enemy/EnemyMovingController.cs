@@ -21,7 +21,7 @@ public class EnemyMovingController : MonoBehaviour
     private void Update()
     {
         if (!IsAlive)
-            Agent.isStopped = true;
+            Agent.speed = 0;
         
         if (NeedsNewTarget() && IsAlive)
             SetNewTarget();

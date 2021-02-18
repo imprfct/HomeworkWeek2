@@ -19,8 +19,6 @@ namespace Assets.Scripts.Bonuses
             var animator = Player.GetComponent<Animator>();
             var newSpeed = animator.GetFloat(SpeedMultiplier) + _speedBonusPercent;
             animator.SetFloat(SpeedMultiplier, newSpeed);
-
-            Debug.Log("Added SPD to player");
         }
     }
 }
