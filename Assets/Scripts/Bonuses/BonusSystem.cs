@@ -7,15 +7,20 @@ namespace Assets.Scripts.Bonuses
 {
     public class BonusSystem : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject _player;
-
         [SerializeField] 
         private Text _killedEnemiesCounter;
         
         [SerializeField]
         private List<Bonus> _bonuses;
 
+        [SerializeField] 
+        private GameObject _bonusPanelPrefab;
+        [SerializeField] 
+        private Canvas _canvas;
+        
+        [SerializeField] 
+        private int _CountOfEnemiesToGetBonus = 5;
+        
         private int _lastKilledEnemiesCount = -1;
         
         private void Update()
@@ -24,8 +29,15 @@ namespace Assets.Scripts.Bonuses
             
             if (NeedsNewBuff(killedEnemiesCount))
             {
-                var randomBonus = _bonuses[new Random().Next(_bonuses.Count)];
-                randomBonus.Effect(_player);
+                var random = new Random();
+                Instantiate(_bonusPanelPrefab, _canvas.transform, false);
+                
+                var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
+                for (int i = 0; i < 3; i++)
+                {
+                    var randomBonus = _bonuses[random.Next(_bonuses.Count)];
+                    bonuses[i].GetComponent<BonusSetter>().SetBonus(randomBonus);
+                }
             }        
             
             _lastKilledEnemiesCount = killedEnemiesCount;
@@ -33,8 +45,11 @@ namespace Assets.Scripts.Bonuses
 
         private bool NeedsNewBuff(int value)
         {
-            if ((_lastKilledEnemiesCount != value) && (value % 5 == 0))
+            if ((_lastKilledEnemiesCount != value) &&
+                (value % _CountOfEnemiesToGetBonus == 0))
+            {
                 return true;
+            }
 
             return false;
         }

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Bonuses
         private float _speedBonusPercent = .3f;
         
         private static readonly int SpeedMultiplier = Animator.StringToHash("SpeedMultiplier");
-
+    
         public override void Effect(GameObject player)
         {
             base.Effect(player);

@@ -4,11 +4,11 @@ namespace Assets.Scripts.Bonuses
 {
     public class AttackSpeedBonus : Bonus
     {
+        private static readonly int AttackSpeedMultiplier = Animator.StringToHash("AttackSpeedMultiplier");
+
         [SerializeField] 
         private float _attackSpeedBonusPercent = .5f;
-        
-        private static readonly int AttackSpeedMultiplier = Animator.StringToHash("AttackSpeedMultiplier");
-        
+
         public override void Effect(GameObject player)
         {
             base.Effect(player);

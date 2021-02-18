@@ -4,7 +4,7 @@ public class AttackDamageBonus : Bonus
 {
     [SerializeField] 
     private float _damageToAdd = 25f;
-
+    
     public override void Effect(GameObject player)
     {
         base.Effect(player);
