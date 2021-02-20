@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TryAgainClick : MonoBehaviour
+namespace UI.HealthBar
 {
-    [SerializeField] 
-    private GameLogic _gameLogic;
+    public class TryAgainClick : MonoBehaviour
+    {
+        void Start () {
+            Button btn = gameObject.GetComponent<Button>();
+            btn.onClick.AddListener(BtnOnClick);
+        }
 
-    void Start () {
-        Button btn = gameObject.GetComponent<Button>();
-        btn.onClick.AddListener(BtnOnClick);
-    }
-
-    void BtnOnClick(){
-        _gameLogic.Restart();
+        void BtnOnClick(){
+            GameLogic.Instance.Restart();
+        }
     }
 }

@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = System.Random;
 
-namespace Assets.Scripts.Bonuses
+namespace Bonuses
 {
     public class BonusSystem : MonoBehaviour
     {

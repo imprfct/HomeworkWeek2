@@ -13,8 +13,6 @@ public class GeneralHealthSystem : MonoBehaviour
     
     [SerializeField]
     private CollisionsWithDoors _enterDoorCollisionScript;
-    [SerializeField]
-    private GameLogic _gameLogic;
     
     private void Awake()
     {
@@ -29,7 +27,7 @@ public class GeneralHealthSystem : MonoBehaviour
         if (liveIndex == 0)
         {
             _lives[liveIndex].sprite = _emptyHeart;
-            _gameLogic.GameOver();
+            GameLogic.Instance.GameOver();
             return;
         }
         

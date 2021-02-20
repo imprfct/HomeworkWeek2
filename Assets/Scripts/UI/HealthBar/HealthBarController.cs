@@ -1,5 +1,6 @@
 using System;
 using Assets.Scripts.Utils;
+using EnemyScripts;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,13 +8,10 @@ namespace UI.HealthBar
 {
     public class HealthBarController : MonoBehaviour
     {
-        public static UnityAction<GameObject> EnemyDie;
+        public static UnityAction<Enemy> EnemyDie;
         
         [NonSerialized]
         public HealthBar HealthBar;
-    
-        [SerializeField]
-        private GameLogic _gameLogic; 
     
         [SerializeField] 
         private float _damageByHitWithPlayer = 30f;
@@ -57,7 +55,7 @@ namespace UI.HealthBar
                 // Если умер игрок
                 else if (gameObject.CompareTag(GlobalConstants.PlayerTag))
                 {
-                    _gameLogic.GameOver();
+                    GameLogic.Instance.GameOver();
                 }
             }
         }
@@ -84,7 +82,7 @@ namespace UI.HealthBar
             Destroy(HealthBar.gameObject, latencyBeforeDeath);
             Destroy(gameObject, latencyBeforeDeath);
             
-            EnemyDie?.Invoke(gameObject);
+            EnemyDie?.Invoke(gameObject.GetComponent<Enemy>());
         }
     
         private float CalculatePercentHp(float hp)

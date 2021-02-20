@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.Utils;
+using Bonuses;
 using UI.HealthBar;
 using UnityEngine;
 using Random = System.Random;

@@ -1,3 +1,4 @@
+using Bonuses;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ public class BonusSelection : MonoBehaviour
     private void OnPointerClick()
     {
         var selectedBonus = gameObject.GetComponent<BonusView>();
-        selectedBonus.UseBonus(GameObject.FindGameObjectWithTag("Player"));
+        selectedBonus.UseBonus(GameLogic.Instance.Player);
 
         var bonusPanel = transform.parent.gameObject;
         Destroy(bonusPanel);

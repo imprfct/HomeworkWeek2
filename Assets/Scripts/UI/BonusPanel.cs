@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using Bonuses;
 using UnityEngine;
 
 public class BonusPanel : MonoBehaviour

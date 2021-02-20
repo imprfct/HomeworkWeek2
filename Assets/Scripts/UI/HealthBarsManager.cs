@@ -1,5 +1,4 @@
-using Enemy;
-using UI.HealthBar;
+using EnemyScripts;
 using UnityEngine;
 
 namespace UI
@@ -17,9 +16,9 @@ namespace UI
             _spawner.EnemySpawned += EnemySpawned;
         }
 
-        private void EnemySpawned(GameObject enemy)
+        private void EnemySpawned(Enemy enemy)
         {
-            UIManager.Instance.CreateHealthBar(enemy);
+            UIManager.Instance.CreateHealthBar(enemy.gameObject);
         }
     
         private void OnDestroy()

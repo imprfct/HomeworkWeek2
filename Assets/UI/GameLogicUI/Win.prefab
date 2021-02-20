@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 6883634819505136807}
   - component: {fileID: 8352689725120901435}
   - component: {fileID: 2272949942368507272}
-  - component: {fileID: 8173734153479211140}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -294,20 +293,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5856eb6725f86e3498517f9a4879f0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameLogic: {fileID: 8173734153479211140}
---- !u!114 &8173734153479211140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7549142427749752351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winPrefab: {fileID: 3668614768477880281}
-  gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
-  canvas: {fileID: 0}
-  enemiesToProceed: 10

@@ -1049,6 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017deab846a2462e9e4b3f91882eb8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KilledEnemiesCounter: {fileID: 1039684244}
   _canvas: {fileID: 1153015516}
   _bonusPanelPrefab: {fileID: 6772183640189734493, guid: e3a4c4ca6015fec498e0f957ab997841, type: 3}
   _winPrefab: {fileID: 3668614768477880281, guid: 4d8602d0725c66b41a0113f8811d051c, type: 3}

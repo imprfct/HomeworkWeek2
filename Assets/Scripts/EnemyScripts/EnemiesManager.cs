@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UI.HealthBar;
 using UnityEngine;
 
-namespace Enemy
+namespace EnemyScripts
 {
     public class EnemiesManager : MonoBehaviour
     {
         public static EnemiesManager Instance { get; private set; }
-        public List<GameObject> Enemies { get;} = new List<GameObject>();
+        public List<Enemy> Enemies { get;} = new List<Enemy>();
         
         [SerializeField] 
         private EnemySpawner _spawner;
@@ -20,12 +20,12 @@ namespace Enemy
             HealthBarController.EnemyDie += OnEnemyDeath;
         }
 
-        private void OnEnemySpawned(GameObject enemy)
+        private void OnEnemySpawned(Enemy enemy)
         {
             Enemies.Add(enemy);
         }
         
-        private void OnEnemyDeath(GameObject enemy)
+        private void OnEnemyDeath(Enemy enemy)
         {
             Enemies.Remove(enemy);
         }

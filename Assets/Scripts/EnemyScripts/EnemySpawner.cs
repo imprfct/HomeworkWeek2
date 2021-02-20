@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Enemy
+namespace EnemyScripts
 {
     public class EnemySpawner : MonoBehaviour
     {
-        public event Action<GameObject> EnemySpawned; 
+        public event Action<Enemy> EnemySpawned; 
     
         [SerializeField] 
         private GameObject _enemyPrefab;
@@ -37,7 +37,7 @@ namespace Enemy
         {
             var enemy = Instantiate(_enemyPrefab,
                 TerrainPointProvider.Instance.GetPoint(), Quaternion.identity);
-            EnemySpawned?.Invoke(enemy);
+            EnemySpawned?.Invoke(enemy.GetComponent<Enemy>());
         }
     }
 }

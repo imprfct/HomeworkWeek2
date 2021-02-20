@@ -7,5 +7,8 @@
 
         public const string ExitDoorTag = "ExitDoor";
         public const string EnterDoorTag = "EnterDoor";
+
+        public const string BordersOfMapTag = "BordersOfMap";
+        public const string WallsTag = "Walls";
     }
 }

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using PlayerScripts;
+using UnityEngine;
 
-namespace Assets.Scripts.Bonuses
+namespace Bonuses
 {
     public class AttackSpeedBonus : Bonus
     {
@@ -9,9 +10,9 @@ namespace Assets.Scripts.Bonuses
         [SerializeField] 
         private float _attackSpeedBonusPercent = .5f;
 
-        public override void ApplyEffect(GameObject player)
+        public override void ApplyEffect(Player player)
         {
-            var animator = player.GetComponent<Animator>();
+            var animator = player.Animator;
             var newAttackSpeed = animator.GetFloat(AttackSpeedMultiplier) + _attackSpeedBonusPercent;
             animator.SetFloat(AttackSpeedMultiplier, newAttackSpeed);
         }

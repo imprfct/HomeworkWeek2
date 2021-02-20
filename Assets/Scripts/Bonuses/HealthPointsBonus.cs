@@ -1,15 +1,18 @@
-using UI.HealthBar;
+using PlayerScripts;
 using UnityEngine;
 
-public class HealthPointsBonus : Bonus
+namespace Bonuses
 {
-    [SerializeField] 
-    private float _healthToAdd = 25f;
-
-    public override void ApplyEffect(GameObject player)
+    public class HealthPointsBonus : Bonus
     {
-        var healthBarController = player.GetComponent<HealthBarController>();
-        healthBarController.MaxHealthPoints += _healthToAdd;
-        healthBarController.CurrentHealthPoints += _healthToAdd;
+        [SerializeField] 
+        private float _healthToAdd = 25f;
+
+        public override void ApplyEffect(Player player)
+        {
+            var healthBarController = player.HealthBarController;
+            healthBarController.MaxHealthPoints += _healthToAdd;
+            healthBarController.CurrentHealthPoints += _healthToAdd;
+        }
     }
 }

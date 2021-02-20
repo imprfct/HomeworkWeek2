@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using PlayerScripts;
+using UnityEngine;
 
-namespace Assets.Scripts.Bonuses
+namespace Bonuses
 {
     public class SpeedBonus : Bonus
     {
@@ -9,12 +10,12 @@ namespace Assets.Scripts.Bonuses
         
         private static readonly int SpeedMultiplier = Animator.StringToHash("SpeedMultiplier");
     
-        public override void ApplyEffect(GameObject player)
+        public override void ApplyEffect(Player player)
         {
-            var movementController = player.GetComponent<PlayerMovementController>();
+            var movementController = player.MovementController;
             movementController._speed += movementController._speed * _speedBonusPercent;
             
-            var animator = player.GetComponent<Animator>();
+            var animator = player.Animator;
             var newSpeed = animator.GetFloat(SpeedMultiplier) + _speedBonusPercent;
             animator.SetFloat(SpeedMultiplier, newSpeed);
         }

@@ -7,9 +7,6 @@ public class CollisionsWithDoors : MonoBehaviour
 {
     public Action OnEnemyReachedTargetDoor;
     
-    [SerializeField] 
-    private GameLogic _game;
-
     private void OnCollisionEnter(Collision other)
     {
         // Если обрабатываем дверь, куда стремится враг
@@ -27,7 +24,7 @@ public class CollisionsWithDoors : MonoBehaviour
         {
             if (other.collider.CompareTag(GlobalConstants.PlayerTag))
             {
-                _game.Win();
+                GameLogic.Instance.Win();
             }
         }
     }
