@@ -581,9 +581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winPrefab: {fileID: 3668614768477880281, guid: 4d8602d0725c66b41a0113f8811d051c, type: 3}
-  _gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
-  _canvas: {fileID: 1153015516}
 --- !u!4 &794595379
 Transform:
   m_ObjectHideFlags: 0
@@ -676,8 +673,6 @@ MonoBehaviour:
   - {fileID: 794595382}
   - {fileID: 794595381}
   - {fileID: 794595380}
-  _bonusPanelPrefab: {fileID: 6772183640189734493, guid: e3a4c4ca6015fec498e0f957ab997841, type: 3}
-  _canvas: {fileID: 1153015516}
   _countOfEnemiesToGetBonus: 5
 --- !u!1 &963194225
 GameObject:
@@ -936,6 +931,7 @@ GameObject:
   - component: {fileID: 1153015515}
   - component: {fileID: 1153015514}
   - component: {fileID: 1153015518}
+  - component: {fileID: 1153015519}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1039,11 +1035,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601b38f76999c7b498bbfbeed4469525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
-  _healthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
   _spawner: {fileID: 9073800640892949941}
-  _playerTransform: {fileID: 543450652978461617}
-  _canvas: {fileID: 1153015517}
+  _player: {fileID: 919132148702404875}
+--- !u!114 &1153015519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153015513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017deab846a2462e9e4b3f91882eb8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 1153015516}
+  _bonusPanelPrefab: {fileID: 6772183640189734493, guid: e3a4c4ca6015fec498e0f957ab997841, type: 3}
+  _winPrefab: {fileID: 3668614768477880281, guid: 4d8602d0725c66b41a0113f8811d051c, type: 3}
+  _gameOverPrefab: {fileID: 7279390386628474442, guid: 19a8231df0edf2c41904704bd9fefcca, type: 3}
+  _enemyHealthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
+  _playerHealthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
 --- !u!1 &1225792403
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,7 +4091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 106386, guid: 6d19ed50e08fbbe4a886e54fd21cbaf2, type: 3}
-  _pointProvider: {fileID: 9073800640892949943}
   _newEnemyCooldown: 5
 --- !u!114 &9073800640892949942
 MonoBehaviour:

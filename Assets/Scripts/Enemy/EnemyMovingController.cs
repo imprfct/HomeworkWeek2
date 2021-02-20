@@ -16,9 +16,6 @@ public class EnemyMovingController : MonoBehaviour
     [SerializeField] 
     private Vector3 _enemyTarget = new Vector3(25, 0, 0);
     
-    [SerializeField]
-    private TerrainPointProvider _pointProvider;
-    
     private void Update()
     {
         if (!IsAlive)
@@ -49,7 +46,7 @@ public class EnemyMovingController : MonoBehaviour
         }
         else
         {
-            _agent.SetDestination(_pointProvider.GetPoint());
+            _agent.SetDestination(TerrainPointProvider.Instance.GetPoint());
         }
     }
 

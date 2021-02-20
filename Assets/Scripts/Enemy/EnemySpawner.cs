@@ -11,9 +11,6 @@ namespace Enemy
         private GameObject _enemyPrefab;
     
         [SerializeField]
-        private TerrainPointProvider _pointProvider;
-    
-        [SerializeField]
         private float _newEnemyCooldown = 5;
     
         private float _elapsedTimeSinceLastSpawn;
@@ -38,7 +35,8 @@ namespace Enemy
 
         private void SpawnEnemy()
         {
-            var enemy = Instantiate(_enemyPrefab, _pointProvider.GetPoint(), Quaternion.identity);
+            var enemy = Instantiate(_enemyPrefab,
+                TerrainPointProvider.Instance.GetPoint(), Quaternion.identity);
             EnemySpawned?.Invoke(enemy);
         }
     }

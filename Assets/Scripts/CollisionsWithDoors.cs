@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.Utils;
 using UI.HealthBar;
 using UnityEngine;
 
@@ -12,9 +13,9 @@ public class CollisionsWithDoors : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         // Если обрабатываем дверь, куда стремится враг
-        if (CompareTag("EnterDoor"))
+        if (CompareTag(GlobalConstants.EnterDoorTag))
         {
-            if (other.collider.CompareTag("Enemy"))
+            if (other.collider.CompareTag(GlobalConstants.EnemyTag))
             {
                 OnEnemyReachedTargetDoor.Invoke();
                 other.collider.gameObject.GetComponent<HealthBarController>().EnemyDeath(0f);
@@ -22,9 +23,9 @@ public class CollisionsWithDoors : MonoBehaviour
         }
         
         // Если обрабатываем дверь, куда нужно попасть игроку
-        if (CompareTag("ExitDoor"))
+        if (CompareTag(GlobalConstants.ExitDoorTag))
         {
-            if (other.collider.CompareTag("Player"))
+            if (other.collider.CompareTag(GlobalConstants.PlayerTag))
             {
                 _game.Win();
             }

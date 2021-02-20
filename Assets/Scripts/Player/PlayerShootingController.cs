@@ -49,7 +49,7 @@ public class PlayerShootingController : MonoBehaviour
         _elapsedTimeSinceLastShoot %= _shootCooldown;
     }
     
-    public void Shoot()
+    private void Shoot()
     {
         /*
          * Эта процедура вызывается из ивента анимации атаки в момент, когда анимация каста окончена
@@ -74,7 +74,7 @@ public class PlayerShootingController : MonoBehaviour
         }
     }
 
-    void FindClosestEnemy(List<GameObject> enemiesList)
+    private void FindClosestEnemy(List<GameObject> enemiesList)
     {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -16,11 +17,6 @@ namespace Assets.Scripts.Bonuses
         private List<Bonus> _bonuses;
 
         [SerializeField] 
-        private GameObject _bonusPanelPrefab;
-        [SerializeField] 
-        private Canvas _canvas;
-        
-        [SerializeField] 
         private int _countOfEnemiesToGetBonus = 5;
         
         private int _lastKilledEnemiesCount = -1;
@@ -31,7 +27,7 @@ namespace Assets.Scripts.Bonuses
             
             if (ShouldSpawnBonusPanel(killedEnemiesCount))
             {
-                SpawnBonusPanel();
+                UIManager.Instance.SpawnBonusPanel(_bonusesCount, _bonuses);
                 Time.timeScale = 0;
             }        
             
@@ -47,19 +43,6 @@ namespace Assets.Scripts.Bonuses
             }
 
             return false;
-        }
-        
-        private void SpawnBonusPanel()
-        {
-            var random = new Random();
-            Instantiate(_bonusPanelPrefab, _canvas.transform, false);
-                
-            var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
-            for (int i = 0; i < _bonusesCount; i++)
-            {
-                var randomBonus = _bonuses[random.Next(_bonuses.Count)];
-                bonuses[i].GetComponent<BonusView>().Initialize(randomBonus);
-            }
         }
     }
 }

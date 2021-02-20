@@ -9,7 +9,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] public float _speed = 7;
     
-
     void Update()
     {
         Move();
