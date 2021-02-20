@@ -360,7 +360,6 @@ MonoBehaviour:
   - {fileID: 1422133621}
   _emptyHeart: {fileID: 21300000, guid: 795007e3bb3202346a864b419957357a, type: 3}
   _enterDoorCollisionScript: {fileID: 1664880245}
-  _gameLogic: {fileID: 794595378}
 --- !u!1 &560210035
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d6578632bbd84b9345bfcf3abe9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 919132148702404879}
 --- !u!4 &794595379
 Transform:
   m_ObjectHideFlags: 0
@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -773,6 +774,21 @@ MonoBehaviour:
   _target: {fileID: 543450652978461617}
   _smoothSpeed: 0.8
   _offset: {x: 0, y: 15, z: -10}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d5563acba4eaeb53817b76548ccd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camTransform: {fileID: 963194228}
+  _shakeAmount: 0.05
+  _decreaseFactor: 1
 --- !u!1 &977073885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e07e9cf6626ff047959ec9f667510b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 794595378}
 --- !u!54 &1225792410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1521,7 +1536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e07e9cf6626ff047959ec9f667510b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 794595378}
 --- !u!54 &1664880246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1736,9 +1750,10 @@ GameObject:
   - component: {fileID: 1840965930}
   - component: {fileID: 919132148702404877}
   - component: {fileID: 919132148702404882}
+  - component: {fileID: 919132148702404879}
   - component: {fileID: 1840965932}
-  - component: {fileID: 919132148702404878}
   - component: {fileID: 919132148702404876}
+  - component: {fileID: 919132148702404878}
   - component: {fileID: 919132148702404880}
   m_Layer: 3
   m_Name: Player
@@ -1795,6 +1810,23 @@ MonoBehaviour:
   _shootCooldown: 1
   _attackRadius: 25
   _shardSpeed: 3
+--- !u!114 &919132148702404879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148702404875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5ccd0f98ffda84ea1cdec5db6e8907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 1840965932}
+  AnimationController: {fileID: 919132148702404876}
+  ShootingController: {fileID: 919132148702404878}
+  HealthBarController: {fileID: 919132148702404880}
+  Animator: {fileID: 1840965930}
 --- !u!114 &919132148702404880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,7 +1839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4075e456fbed848bb487aa1cd82e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameLogic: {fileID: 794595378}
   _damageByHitWithPlayer: 30
   _labelUpdater: {fileID: 0}
 --- !u!54 &919132148702404882

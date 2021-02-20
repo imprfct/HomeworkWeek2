@@ -9,6 +9,7 @@ namespace UI.HealthBar
     public class HealthBarController : MonoBehaviour
     {
         public static UnityAction<Enemy> EnemyDie;
+        public static UnityAction PlayerGotHit;
         
         [NonSerialized]
         public HealthBar HealthBar;
@@ -33,6 +34,11 @@ namespace UI.HealthBar
                 other.gameObject.CompareTag(GlobalConstants.PlayerTag))
             {
                 TakeDamage(_damageByHitWithPlayer);
+            }
+
+            if (other.gameObject.CompareTag(GlobalConstants.EnemyTag))
+            {
+                PlayerGotHit?.Invoke();
             }
         }
     

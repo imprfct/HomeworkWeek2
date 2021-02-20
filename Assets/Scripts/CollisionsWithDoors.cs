@@ -14,7 +14,7 @@ public class CollisionsWithDoors : MonoBehaviour
         {
             if (other.collider.CompareTag(GlobalConstants.EnemyTag))
             {
-                OnEnemyReachedTargetDoor.Invoke();
+                OnEnemyReachedTargetDoor?.Invoke();
                 other.collider.gameObject.GetComponent<HealthBarController>().EnemyDeath(0f);
             }
         }

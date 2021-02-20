@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GeneralHealthSystem : MonoBehaviour
 {
+    public static Action EnemyReachedTargetDoor;
+    
     private int _livesCount;
 
     [SerializeField] 
@@ -35,5 +38,7 @@ public class GeneralHealthSystem : MonoBehaviour
         
         _livesCount -= 1;
         _enterDoorCollisionScript.OnEnemyReachedTargetDoor -= OnEnemyReachedTargetDoor;
+        
+        EnemyReachedTargetDoor?.Invoke();
     }
 }
