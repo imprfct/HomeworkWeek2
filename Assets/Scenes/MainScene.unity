@@ -351,7 +351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 302564904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9707ccd20ef942429b9aad3c6fad7bf, type: 3}
+  m_Script: {fileID: 11500000, guid: c6ba1e540e2b5da4eabe2bbf4b22dd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lives:
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   _shardPrefab: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
   _spawner: {fileID: 250616827}
   _shootCooldown: 1
-  _attackRadius: 50
+  _attackRadius: 25
   _shardSpeed: 4
 --- !u!114 &919132148702404880
 MonoBehaviour:

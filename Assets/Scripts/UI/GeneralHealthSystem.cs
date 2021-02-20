@@ -36,5 +36,6 @@ public class GeneralHealthSystem : MonoBehaviour
         _lives[liveIndex].sprite = _emptyHeart;
         
         _livesCount -= 1;
+        _enterDoorCollisionScript.OnEnemyReachedTargetDoor -= OnEnemyReachedTargetDoor;
     }
 }

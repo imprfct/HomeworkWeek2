@@ -6,7 +6,9 @@ public class PlayerMovementController : MonoBehaviour
     [NonSerialized] public bool isRunning;
 
     [SerializeField] private PlayerJoystickController _joystickController;
+    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] public float _speed = 7;
+    
 
     void Update()
     {
@@ -19,17 +21,13 @@ public class PlayerMovementController : MonoBehaviour
         if (inputDirection.Equals(Vector2.zero))
         {
             isRunning = false;
+            _rigidbody.velocity = Vector3.zero;
         }
         else
         {
-            var player = transform;
-            var newPosition = player.position;
-            
-            newPosition.x += inputDirection.x * _speed * Time.deltaTime;
-            newPosition.z += inputDirection.y * _speed * Time.deltaTime;
-            
-            player.LookAt(newPosition);
-            player.position = newPosition;
+            var direction = new Vector3(inputDirection.x, 0, inputDirection.y);
+            _rigidbody.velocity = direction * _speed;
+            transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
             isRunning = true;
         }
     }

@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class ShardHitManager : MonoBehaviour
@@ -7,7 +8,7 @@ public class ShardHitManager : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Enemy"))
+        if (other.collider.CompareTag(GlobalConstants.EnemyTag))
         {
             var damage = Random.Range(MinDamage, MaxDamage);
             other.collider.GetComponent<HealthBarController>().TakeDamage(damage);
