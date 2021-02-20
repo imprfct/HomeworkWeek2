@@ -1,5 +1,5 @@
 using System;
-using Assets.Scripts.UI;
+using UI.HealthBar;
 using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour

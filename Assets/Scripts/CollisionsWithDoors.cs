@@ -1,4 +1,5 @@
 using System;
+using UI.HealthBar;
 using UnityEngine;
 
 public class CollisionsWithDoors : MonoBehaviour

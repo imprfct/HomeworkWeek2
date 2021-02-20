@@ -1,3 +1,4 @@
+using UI.HealthBar;
 using UnityEngine;
 
 public class HealthPointsBonus : Bonus

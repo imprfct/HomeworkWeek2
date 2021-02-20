@@ -1,88 +1,95 @@
 using System;
-using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class HealthBarController : MonoBehaviour
+namespace UI.HealthBar
 {
-    [NonSerialized]
-    public HealthBar HealthBar;
-    
-    [SerializeField]
-    private GameLogic _gameLogic; 
-    
-    [SerializeField] 
-    private float _damageByHitWithPlayer = 30f;
-    
-    [SerializeField]
-    private KilledEnemiesUpdater _labelUpdater;
-    
-    public float MaxHealthPoints = 100;
-    public float CurrentHealthPoints;
-    
-    private void Start()
+    public class HealthBarController : MonoBehaviour
     {
-        CurrentHealthPoints = MaxHealthPoints;
-    }
+        public static UnityAction<GameObject> EnemyDie;
+        
+        [NonSerialized]
+        public HealthBar HealthBar;
+    
+        [SerializeField]
+        private GameLogic _gameLogic; 
+    
+        [SerializeField] 
+        private float _damageByHitWithPlayer = 30f;
+    
+        [SerializeField]
+        private KilledEnemiesUpdater _labelUpdater;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag(GlobalConstants.EnemyTag) ||
-            other.gameObject.CompareTag(GlobalConstants.PlayerTag))
+        public float MaxHealthPoints { get; set; } = 100;
+        public float CurrentHealthPoints { get; set; }
+    
+        private void Start()
         {
-            TakeDamage(_damageByHitWithPlayer);
+            CurrentHealthPoints = MaxHealthPoints;
         }
-    }
-    
-    public void TakeDamage(float damage)
-    {
-        CurrentHealthPoints -= damage;
-        HealthBar.SetHealthInPercents(CalculatePercentHp(CurrentHealthPoints));
-        CheckForDeath();
-    }
 
-    private void CheckForDeath()
-    {
-        if (IsDead())
+        private void OnCollisionEnter(Collision other)
         {
-            // Если умер враг
-            if (gameObject.CompareTag(GlobalConstants.EnemyTag))
+            if (other.gameObject.CompareTag(GlobalConstants.EnemyTag) ||
+                other.gameObject.CompareTag(GlobalConstants.PlayerTag))
             {
-                EnemyDeath(0.5f);
-            }
-            // Если умер игрок
-            else if (gameObject.CompareTag(GlobalConstants.PlayerTag))
-            {
-                _gameLogic.GameOver();
+                TakeDamage(_damageByHitWithPlayer);
             }
         }
-    }
     
-    public bool IsDead()
-    {
-        if (CalculatePercentHp(CurrentHealthPoints) == 0)
-            return true;
+        public void TakeDamage(float damage)
+        {
+            CurrentHealthPoints -= damage;
+            HealthBar.SetHealthInPercents(CalculatePercentHp(CurrentHealthPoints));
+            CheckForDeath();
+        }
 
-        return false;
-    }
+        private void CheckForDeath()
+        {
+            if (IsDead())
+            {
+                // Если умер враг
+                if (gameObject.CompareTag(GlobalConstants.EnemyTag))
+                {
+                    EnemyDeath(0.5f);
+                }
+                // Если умер игрок
+                else if (gameObject.CompareTag(GlobalConstants.PlayerTag))
+                {
+                    _gameLogic.GameOver();
+                }
+            }
+        }
     
-    public void EnemyDeath(float latencyBeforeDeath)
-    {
-        var enemy = gameObject.GetComponent<EnemyMovingController>();
+        public bool IsDead()
+        {
+            if (CalculatePercentHp(CurrentHealthPoints) == 0)
+                return true;
+
+            return false;
+        }
+    
+        public void EnemyDeath(float latencyBeforeDeath)
+        {
+            var enemy = gameObject.GetComponent<EnemyMovingController>();
         
-        enemy.IsAlive = false;
-        enemy.IsMoving = false;
+            enemy.IsAlive = false;
+            enemy.IsMoving = false;
         
-        HealthBar.SetHealthInPercents(0f);
+            HealthBar.SetHealthInPercents(0f);
 
-        _labelUpdater.IncrementKilledEnemiesCounter();
+            _labelUpdater.IncrementKilledEnemiesCounter();
 
-        Destroy(HealthBar.gameObject, latencyBeforeDeath);
-        Destroy(gameObject, latencyBeforeDeath);
-    }
+            Destroy(HealthBar.gameObject, latencyBeforeDeath);
+            Destroy(gameObject, latencyBeforeDeath);
+            
+            EnemyDie?.Invoke(gameObject);
+        }
     
-    private float CalculatePercentHp(float hp)
-    {
-        return Mathf.Clamp(hp / MaxHealthPoints, 0, 1);
+        private float CalculatePercentHp(float hp)
+        {
+            return Mathf.Clamp(hp / MaxHealthPoints, 0, 1);
+        }
     }
 }

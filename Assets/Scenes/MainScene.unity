@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 1153015516}
   - component: {fileID: 1153015515}
   - component: {fileID: 1153015514}
+  - component: {fileID: 1153015518}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1026,6 +1027,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1153015518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153015513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b38f76999c7b498bbfbeed4469525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyHealthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
+  _healthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
+  _spawner: {fileID: 9073800640892949941}
+  _playerTransform: {fileID: 543450652978461617}
+  _canvas: {fileID: 1153015517}
 --- !u!1 &1225792403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystickController: {fileID: 560210037}
+  _rigidbody: {fileID: 919132148702404882}
   _speed: 7
 --- !u!1 &9171099834684067
 GameObject:
@@ -1708,7 +1727,6 @@ GameObject:
   - component: {fileID: 1840965932}
   - component: {fileID: 919132148702404878}
   - component: {fileID: 919132148702404876}
-  - component: {fileID: 919132148702404881}
   - component: {fileID: 919132148702404880}
   m_Layer: 3
   m_Name: Player
@@ -1760,12 +1778,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDamage: 20
   minDamage: 50
-  _enemiesManager: {fileID: 9073800640892949942}
   _shardPrefab: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
   _spawner: {fileID: 250616827}
   _shootCooldown: 1
   _attackRadius: 25
-  _shardSpeed: 4
+  _shardSpeed: 3
 --- !u!114 &919132148702404880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,23 +1798,6 @@ MonoBehaviour:
   _gameLogic: {fileID: 794595378}
   _damageByHitWithPlayer: 30
   _labelUpdater: {fileID: 0}
-  MaxHealthPoints: 100
-  CurrentHealthPoints: 0
---- !u!114 &919132148702404881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148702404875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cf03eecacebf2429a13da592a588ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBarPrefab: {fileID: 6689340452281588455, guid: aaddca0a68d50c740869af2395c2096b, type: 3}
-  _playerTransform: {fileID: 543450652978461617}
-  _targetCanvas: {fileID: 1153015517}
 --- !u!54 &919132148702404882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1812,7 +1812,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!4 &1031632034588246508
 Transform:
@@ -4080,8 +4080,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 106386, guid: 6d19ed50e08fbbe4a886e54fd21cbaf2, type: 3}
-  _healthBarPrefab: {fileID: 4683398507017541780, guid: a9615714c93d84340acbe4df92eddbf0, type: 3}
-  _targetCanvas: {fileID: 1153015517}
   _pointProvider: {fileID: 9073800640892949943}
   _newEnemyCooldown: 5
 --- !u!114 &9073800640892949942
@@ -4096,7 +4094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc5667fb614d404782df4c464461253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
   _spawner: {fileID: 9073800640892949941}
 --- !u!114 &9073800640892949943
 MonoBehaviour:

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Enemy;
+using UI.HealthBar;
 using UnityEngine;
 
 public class PlayerShootingController : MonoBehaviour
@@ -9,8 +11,6 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField] 
     public float minDamage = 50f;
     
-    [SerializeField] 
-    private EnemiesManager _enemiesManager;
     [SerializeField]
     private GameObject _shardPrefab;
     [SerializeField]
@@ -24,25 +24,21 @@ public class PlayerShootingController : MonoBehaviour
     private float _shardSpeed = 150f;
     private float _elapsedTimeSinceLastShoot;
     
-    private List<GameObject> _enemies;
     private GameObject _closestEnemy;
-    private void Start()
-    {
-        _enemies = _enemiesManager.enemies;
-    }
-
+    
     public void Update()
     {
+        var enemies = EnemiesManager.Instance.Enemies;
+        
         if (_elapsedTimeSinceLastShoot < _shootCooldown)
         {
-            if (_enemies.Count > 0)
+            if (enemies.Count > 0)
             {
-                FindClosestEnemy();
+                FindClosestEnemy(enemies);
             }
 
             _elapsedTimeSinceLastShoot = 0;
         }
-        
         
         IterateCooldown();
     }
@@ -78,17 +74,15 @@ public class PlayerShootingController : MonoBehaviour
         }
     }
 
-    void FindClosestEnemy()
+    void FindClosestEnemy(List<GameObject> enemiesList)
     {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
 
         GameObject closest = null;
 
-        foreach (var enemy in _enemies)
+        foreach (var enemy in enemiesList)
         {
-            try
-            {
                 var distanceToEnemy = Vector3.Distance(transform.position,
                     enemy.transform.position);
 
@@ -102,13 +96,6 @@ public class PlayerShootingController : MonoBehaviour
                     closest = enemy;
                     distance = currentDistance;
                 }
-            }
-            /*
-             * Появляется, когда стреляем по врагу, который остался в _enemies, но уже удален со сцены
-             * Эта проблема связана с тем, что враг является префабом и я не могу дать ему ссылку на массив _enemies
-             *  Решение лучше чем это я просто не смог придумать...
-             */
-            catch (MissingReferenceException){ }
         }
         
         _closestEnemy = closest;
