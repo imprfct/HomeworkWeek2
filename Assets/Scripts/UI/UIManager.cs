@@ -11,6 +11,8 @@ namespace UI
     {
         public static UIManager Instance { get; private set; }
 
+        public GameObject KilledEnemiesCounter;
+        
         [SerializeField] 
         private Canvas _canvas;
         
@@ -34,13 +36,13 @@ namespace UI
         public void SpawnBonusPanel(int bonusesCount, List<Bonus> bonusesViews)
         {
             var random = new Random();
-            Instantiate(_bonusPanelPrefab, _canvas.transform, false);
-                
-            var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
+            var bonusPanel = Instantiate(_bonusPanelPrefab, _canvas.transform, false);
+
+            var bonuses = bonusPanel.GetComponent<BonusPanel>().Bonuses;
             for (int i = 0; i < bonusesCount; i++)
             {
                 var randomBonus = bonusesViews[random.Next(bonusesViews.Count)];
-                bonuses[i].GetComponent<BonusView>().Initialize(randomBonus);
+                bonuses[i].Initialize(randomBonus);
             }
         }
 

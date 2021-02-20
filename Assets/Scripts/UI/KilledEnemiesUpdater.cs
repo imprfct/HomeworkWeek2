@@ -7,12 +7,13 @@ namespace UI
     {
         public void IncrementKilledEnemiesCounter()
         {
-            var label = GameObject.FindWithTag("KilledEnemiesLabel");
+            var label = UIManager.Instance.KilledEnemiesCounter;
             if (label != null)
             {
                 int killedEnemies = int.Parse(label.GetComponent<Text>().text) + 1;
                 label.GetComponent<Text>().text = killedEnemies.ToString();
             }
+            UIManager.Instance.KilledEnemiesCounter = label;
         }
     }
 }
