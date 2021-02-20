@@ -7,6 +7,8 @@ namespace Assets.Scripts.Bonuses
 {
     public class BonusSystem : MonoBehaviour
     {
+        private const int _bonusesCount = 3;
+        
         [SerializeField] 
         private Text _killedEnemiesCounter;
         
@@ -19,7 +21,7 @@ namespace Assets.Scripts.Bonuses
         private Canvas _canvas;
         
         [SerializeField] 
-        private int _CountOfEnemiesToGetBonus = 5;
+        private int _countOfEnemiesToGetBonus = 5;
         
         private int _lastKilledEnemiesCount = -1;
         
@@ -27,7 +29,7 @@ namespace Assets.Scripts.Bonuses
         {
             int killedEnemiesCount = int.Parse(_killedEnemiesCounter.text);
             
-            if (NeedsNewBuff(killedEnemiesCount))
+            if (ShouldSpawnBonusPanel(killedEnemiesCount))
             {
                 SpawnBonusPanel();
                 Time.timeScale = 0;
@@ -36,10 +38,10 @@ namespace Assets.Scripts.Bonuses
             _lastKilledEnemiesCount = killedEnemiesCount;
         }
 
-        private bool NeedsNewBuff(int value)
+        private bool ShouldSpawnBonusPanel(int killedEnemiesCount)
         {
-            if ((_lastKilledEnemiesCount != value) &&
-                (value % _CountOfEnemiesToGetBonus == 0))
+            if ((_lastKilledEnemiesCount != killedEnemiesCount) &&
+                (killedEnemiesCount % _countOfEnemiesToGetBonus == 0))
             {
                 return true;
             }
@@ -53,10 +55,10 @@ namespace Assets.Scripts.Bonuses
             Instantiate(_bonusPanelPrefab, _canvas.transform, false);
                 
             var bonuses = GameObject.FindGameObjectsWithTag("Bonus");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < _bonusesCount; i++)
             {
                 var randomBonus = _bonuses[random.Next(_bonuses.Count)];
-                bonuses[i].GetComponent<BonusSetter>().SetBonus(randomBonus);
+                bonuses[i].GetComponent<BonusView>().Initialize(randomBonus);
             }
         }
     }

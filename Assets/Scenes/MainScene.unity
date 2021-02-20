@@ -610,6 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf8808ed945ea749b761520c3dcbfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: eb166add3d6175c4cb67ba5fc04c2fa9, type: 3}
+  Description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
   _speedBonusPercent: 0.3
 --- !u!114 &794595381
 MonoBehaviour:
@@ -623,6 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5ca80ec6639b44483d071ffc88c28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: ae378e4ee29ea164e91ec30b099e5e63, type: 3}
+  Description: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
   _healthToAdd: 25
 --- !u!114 &794595382
 MonoBehaviour:
@@ -636,6 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcee7e80d3ba65a4aa2ab57d26e381a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 7aa8b625804ff9a4abafee0ec0c6106d, type: 3}
+  Description: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438"
   _attackSpeedBonusPercent: 0.5
 --- !u!114 &794595383
 MonoBehaviour:
@@ -649,6 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2943d854eeebee543a8953a1c30b03f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 2d5a1238729ebf74fb6d5772ce7ac70e, type: 3}
+  Description: "\u0411\u043E\u043D\u0443\u0441 \u043A \u0443\u0440\u043E\u043D\u0443"
   _damageToAdd: 25
 --- !u!114 &794595384
 MonoBehaviour:
@@ -662,12 +670,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5641197b81f0c5341a25cd6707f3ef61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 919132148702404875}
+  _killedEnemiesCounter: {fileID: 1039684246}
   _bonuses:
   - {fileID: 794595383}
   - {fileID: 794595382}
   - {fileID: 794595381}
   - {fileID: 794595380}
+  _bonusPanelPrefab: {fileID: 6772183640189734493, guid: e3a4c4ca6015fec498e0f957ab997841, type: 3}
+  _canvas: {fileID: 1153015516}
+  _countOfEnemiesToGetBonus: 5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,12 +1760,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDamage: 20
   minDamage: 50
-  enemiesManager: {fileID: 9073800640892949942}
-  shardPrefab: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
-  spawner: {fileID: 250616827}
-  shootCooldown: 0.5
-  attackRadius: 15
-  shardSpeed: 3
+  _enemiesManager: {fileID: 9073800640892949942}
+  _shardPrefab: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
+  _spawner: {fileID: 250616827}
+  _shootCooldown: 1
+  _attackRadius: 50
+  _shardSpeed: 4
 --- !u!114 &919132148702404880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,7 +1812,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!4 &1031632034588246508
 Transform:
@@ -4100,7 +4111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
-  _offsetFromTerrainEdges: 35
+  _offsetFromTerrainEdges: 15
 --- !u!1 &9073800641180463431
 GameObject:
   m_ObjectHideFlags: 0

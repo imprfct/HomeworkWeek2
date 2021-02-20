@@ -10,10 +10,10 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
+        Move();
     }
 
-    private void MovePlayer()
+    private void Move()
     {
         var inputDirection = _joystickController._inputDirection;
         if (inputDirection.Equals(Vector2.zero))
@@ -33,9 +33,4 @@ public class PlayerMovementController : MonoBehaviour
             isRunning = true;
         }
     }
-
-    public bool IsPlayerRunning()
-    {
-        return isRunning;
-    } 
 }

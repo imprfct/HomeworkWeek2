@@ -1,5 +1,6 @@
 using System;
 using Assets.Scripts.UI;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class HealthBarController : MonoBehaviour
@@ -19,8 +20,6 @@ public class HealthBarController : MonoBehaviour
     public float MaxHealthPoints = 100;
     public float CurrentHealthPoints;
     
-    
-    
     private void Start()
     {
         CurrentHealthPoints = MaxHealthPoints;
@@ -28,60 +27,35 @@ public class HealthBarController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        TakeDamage(by: other.collider.tag);
-        
-        if (IsDead())
+        if (other.gameObject.CompareTag(GlobalConstants.EnemyTag) ||
+            other.gameObject.CompareTag(GlobalConstants.PlayerTag))
         {
-            // Если умер враг
-            if (gameObject.CompareTag("Enemy"))
-            {
-                EnemyDeath(0.5f);
-            }
-            // Если умер игрок
-            else if (gameObject.CompareTag("Player"))
-            {
-                _gameLogic.GameOver();
-            }
+            TakeDamage(_damageByHitWithPlayer);
         }
     }
     
     public void TakeDamage(float damage)
     {
         CurrentHealthPoints -= damage;
-    }
-    
-    private void TakeDamage(string by)
-    {
-        switch (by)
-        {
-            case "Player":
-                CurrentHealthPoints -= _damageByHitWithPlayer;
-                break;
-            
-            case "Enemy":
-                CurrentHealthPoints -= _damageByHitWithPlayer;
-                break;
-        }
-        
         HealthBar.SetHealthInPercents(CalculatePercentHp(CurrentHealthPoints));
+        CheckForDeath();
     }
 
-    public void EnemyDeath(float latencyBeforeDeath)
+    private void CheckForDeath()
     {
-        var enemy = gameObject.GetComponent<EnemyMovingController>();
-        
-        enemy.IsAlive = false;
-        enemy.IsMoving = false;
-        
-        enemy.Agent.speed = 0;
-        enemy.Agent.enabled = false;
-        
-        HealthBar.SetHealthInPercents(0f);
-
-        _labelUpdater.IncrementKilledEnemiesCounter();
-
-        Destroy(HealthBar.gameObject, latencyBeforeDeath);
-        Destroy(gameObject, latencyBeforeDeath);
+        if (IsDead())
+        {
+            // Если умер враг
+            if (gameObject.CompareTag(GlobalConstants.EnemyTag))
+            {
+                EnemyDeath(0.5f);
+            }
+            // Если умер игрок
+            else if (gameObject.CompareTag(GlobalConstants.PlayerTag))
+            {
+                _gameLogic.GameOver();
+            }
+        }
     }
     
     public bool IsDead()
@@ -90,6 +64,21 @@ public class HealthBarController : MonoBehaviour
             return true;
 
         return false;
+    }
+    
+    public void EnemyDeath(float latencyBeforeDeath)
+    {
+        var enemy = gameObject.GetComponent<EnemyMovingController>();
+        
+        enemy.IsAlive = false;
+        enemy.IsMoving = false;
+        
+        HealthBar.SetHealthInPercents(0f);
+
+        _labelUpdater.IncrementKilledEnemiesCounter();
+
+        Destroy(HealthBar.gameObject, latencyBeforeDeath);
+        Destroy(gameObject, latencyBeforeDeath);
     }
     
     private float CalculatePercentHp(float hp)

@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class Bonus : MonoBehaviour
+public abstract class Bonus : MonoBehaviour
 {
-    public Sprite _bonusImage;
-    public string _bonusDescription;
+    public Sprite Image;
+    public string Description;
     
-    protected GameObject Player;
-
-    public virtual void Effect(GameObject target)
-    {
-        Player = target;
-    }
+    public abstract void ApplyEffect(GameObject target);
 }

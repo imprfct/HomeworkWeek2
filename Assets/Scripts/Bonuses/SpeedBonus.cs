@@ -9,14 +9,12 @@ namespace Assets.Scripts.Bonuses
         
         private static readonly int SpeedMultiplier = Animator.StringToHash("SpeedMultiplier");
     
-        public override void Effect(GameObject player)
+        public override void ApplyEffect(GameObject player)
         {
-            base.Effect(player);
-
-            var movementController = Player.GetComponent<PlayerMovementController>();
+            var movementController = player.GetComponent<PlayerMovementController>();
             movementController._speed += movementController._speed * _speedBonusPercent;
             
-            var animator = Player.GetComponent<Animator>();
+            var animator = player.GetComponent<Animator>();
             var newSpeed = animator.GetFloat(SpeedMultiplier) + _speedBonusPercent;
             animator.SetFloat(SpeedMultiplier, newSpeed);
         }

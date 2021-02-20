@@ -5,11 +5,9 @@ public class AttackDamageBonus : Bonus
     [SerializeField] 
     private float _damageToAdd = 25f;
     
-    public override void Effect(GameObject player)
+    public override void ApplyEffect(GameObject player)
     {
-        base.Effect(player);
-        
-        var shootingController = Player.GetComponent<PlayerShootingController>();
+        var shootingController = player.GetComponent<PlayerShootingController>();
         shootingController.minDamage += _damageToAdd;
         shootingController.maxDamage += _damageToAdd;
     }

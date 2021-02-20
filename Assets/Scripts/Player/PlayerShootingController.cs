@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerShootingController : MonoBehaviour
 {
@@ -12,30 +10,30 @@ public class PlayerShootingController : MonoBehaviour
     public float minDamage = 50f;
     
     [SerializeField] 
-    private EnemiesManager enemiesManager;
+    private EnemiesManager _enemiesManager;
     [SerializeField]
-    private GameObject shardPrefab;
+    private GameObject _shardPrefab;
     [SerializeField]
-    private GameObject spawner;
+    private GameObject _spawner;
     
     [SerializeField]
-    private float shootCooldown = 1;
+    private float _shootCooldown = 1;
     [SerializeField]
-    private float attackRadius = 50f;
+    private float _attackRadius = 50f;
     [SerializeField]
-    private float shardSpeed = 150f;
+    private float _shardSpeed = 150f;
     private float _elapsedTimeSinceLastShoot;
     
     private List<GameObject> _enemies;
     private GameObject _closestEnemy;
     private void Start()
     {
-        _enemies = enemiesManager.enemies;
+        _enemies = _enemiesManager.enemies;
     }
 
     public void Update()
     {
-        if (_elapsedTimeSinceLastShoot < shootCooldown)
+        if (_elapsedTimeSinceLastShoot < _shootCooldown)
         {
             if (_enemies.Count > 0)
             {
@@ -52,7 +50,7 @@ public class PlayerShootingController : MonoBehaviour
     private void IterateCooldown()
     {
         _elapsedTimeSinceLastShoot += Time.deltaTime;
-        _elapsedTimeSinceLastShoot %= shootCooldown;
+        _elapsedTimeSinceLastShoot %= _shootCooldown;
     }
     
     public void Shoot()
@@ -62,21 +60,21 @@ public class PlayerShootingController : MonoBehaviour
          */
         if (_closestEnemy != null)
         {
-            var spawnerPosition = spawner.transform.position;
+            var spawnerPosition = _spawner.transform.position;
             var enemyPosition = _closestEnemy.transform.position;
             
             var directionToTarget = (enemyPosition - spawnerPosition).normalized;
             directionToTarget.y = 1; // Чтобы всегда летело прямо, без искажений по y
             
             transform.LookAt(_closestEnemy.transform);
-            var shard = Instantiate(shardPrefab,
+            var shard = Instantiate(_shardPrefab,
                 spawnerPosition, Quaternion.identity);
             var shardSettings = shard.GetComponent<ShardHitManager>();
             shardSettings.MinDamage = minDamage;
             shardSettings.MaxDamage = maxDamage;
             
             shard.transform.LookAt(_closestEnemy.transform);
-            shard.GetComponent<Rigidbody>().velocity = directionToTarget * shardSpeed * Time.time;
+            shard.GetComponent<Rigidbody>().velocity = directionToTarget * _shardSpeed * Time.time;
         }
     }
 
@@ -94,7 +92,7 @@ public class PlayerShootingController : MonoBehaviour
                 var distanceToEnemy = Vector3.Distance(transform.position,
                     enemy.transform.position);
 
-                if (distanceToEnemy > attackRadius)
+                if (distanceToEnemy > _attackRadius)
                     continue;
 
                 Vector3 diff = enemy.transform.position - position;
@@ -116,7 +114,7 @@ public class PlayerShootingController : MonoBehaviour
         _closestEnemy = closest;
     }
 
-    public bool PlayerMayAttackEnemy()
+    public bool CouldAttackEnemy()
     {
         if (_closestEnemy)
             return true;

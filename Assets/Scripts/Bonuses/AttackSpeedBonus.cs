@@ -9,11 +9,9 @@ namespace Assets.Scripts.Bonuses
         [SerializeField] 
         private float _attackSpeedBonusPercent = .5f;
 
-        public override void Effect(GameObject player)
+        public override void ApplyEffect(GameObject player)
         {
-            base.Effect(player);
-
-            var animator = Player.GetComponent<Animator>();
+            var animator = player.GetComponent<Animator>();
             var newAttackSpeed = animator.GetFloat(AttackSpeedMultiplier) + _attackSpeedBonusPercent;
             animator.SetFloat(AttackSpeedMultiplier, newAttackSpeed);
         }

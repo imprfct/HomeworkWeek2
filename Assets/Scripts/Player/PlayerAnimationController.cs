@@ -14,12 +14,12 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (_movementController.IsPlayerRunning())
+        if (_movementController.isRunning)
         {
             _animator.ResetTrigger(Attack);            
             _animator.SetBool(IsRunning, true);
         }
-        else if(_shootingController.PlayerMayAttackEnemy())
+        else if(_shootingController.CouldAttackEnemy())
         {
             _animator.SetBool(IsRunning, false);
             _animator.SetTrigger(Attack);

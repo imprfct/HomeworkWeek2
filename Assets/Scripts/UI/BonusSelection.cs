@@ -5,8 +5,8 @@ public class BonusSelection : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        var selectedBonus = eventData.pointerClick.GetComponent<BonusSetter>();
-        selectedBonus.Bonus.Effect(GameObject.FindGameObjectWithTag("Player"));
+        var selectedBonus = eventData.pointerClick.GetComponent<BonusView>();
+        selectedBonus.UseBonus(GameObject.FindGameObjectWithTag("Player"));
 
         var bonusPanel = transform.parent.gameObject;
         Destroy(bonusPanel);

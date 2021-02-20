@@ -21,8 +21,12 @@ public class CollisionsWithDoors : MonoBehaviour
         }
         
         // Если обрабатываем дверь, куда нужно попасть игроку
-        if(CompareTag("ExitDoor"))
-            if(other.collider.CompareTag("Player"))
+        if (CompareTag("ExitDoor"))
+        {
+            if (other.collider.CompareTag("Player"))
+            {
                 _game.Win();
+            }
+        }
     }
 }

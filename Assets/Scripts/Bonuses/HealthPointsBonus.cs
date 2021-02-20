@@ -5,11 +5,9 @@ public class HealthPointsBonus : Bonus
     [SerializeField] 
     private float _healthToAdd = 25f;
 
-    public override void Effect(GameObject player)
+    public override void ApplyEffect(GameObject player)
     {
-        base.Effect(player);
-
-        var healthBarController = Player.GetComponent<HealthBarController>();
+        var healthBarController = player.GetComponent<HealthBarController>();
         healthBarController.MaxHealthPoints += _healthToAdd;
         healthBarController.CurrentHealthPoints += _healthToAdd;
     }
