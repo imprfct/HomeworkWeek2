@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - EnterDoor
   - ExitDoor
+  - KilledEnemiesLabel
+  - Bonus
   layers:
   - Default
   - TransparentFX

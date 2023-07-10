@@ -75,10 +75,11 @@ GameObject:
   - component: {fileID: 9558302}
   - component: {fileID: -8217979379499544097}
   - component: {fileID: 8991707992796629231}
+  - component: {fileID: 2900200222520745750}
   - component: {fileID: -3239643052649976255}
   - component: {fileID: 8310605202814882490}
-  - component: {fileID: -8665603210484283499}
-  - component: {fileID: -7771885570771296760}
+  - component: {fileID: 4390708264869013475}
+  - component: {fileID: 8530034904484776134}
   m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -173,6 +174,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2900200222520745750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949907ab6ee495a4e8c6299758f61cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovingController: {fileID: -3239643052649976255}
+  AnimationController: {fileID: 8310605202814882490}
+  HealthBarController: {fileID: 4390708264869013475}
+  KilledEnemiesUpdater: {fileID: 8530034904484776134}
 --- !u!114 &-3239643052649976255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,10 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb2baeec45f66e4590b8ea59ac58194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToBeTheOne: 0.8
-  enemyTarget: {x: 25, y: 0, z: 0}
-  agent: {fileID: 5145800279972073281}
-  pointProvider: {fileID: -7771885570771296760}
+  _agent: {fileID: 5145800279972073281}
+  _chanceToRunToTheExit: 0.5
+  _enemyTarget: {x: 25, y: 0, z: 0}
 --- !u!114 &8310605202814882490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,10 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4048b1b504e8d974a981ba731f1e218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 9558302}
-  enemy: {fileID: -3239643052649976255}
-  healthBarController: {fileID: -8665603210484283499}
---- !u!114 &-8665603210484283499
+  _animator: {fileID: 9558302}
+  _enemy: {fileID: -3239643052649976255}
+  _healthBarController: {fileID: 4390708264869013475}
+--- !u!114 &4390708264869013475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,12 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4075e456fbed848bb487aa1cd82e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLogic: {fileID: 0}
-  minimalDamageByShard: 20
-  maximumDamageByShard: 60
-  damageByHitWithPlayer: 30
-  maxHealthPoints: 100
---- !u!114 &-7771885570771296760
+  _gameLogic: {fileID: 0}
+  _damageByHitWithPlayer: 30
+  _labelUpdater: {fileID: 8530034904484776134}
+--- !u!114 &8530034904484776134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,11 +244,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 106386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcea68804f8967f4d84e029621f02786, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ea930a24c3168c4a9e955cdfec4f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrain: {fileID: 15600000, guid: fb03f89b5cfec3c4593b737d6b4151da, type: 2}
-  offsetFromTerrainEdges: 35
 --- !u!1 &118702
 GameObject:
   m_ObjectHideFlags: 0
